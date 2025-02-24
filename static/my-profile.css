@@ -1,0 +1,109 @@
+.profile-page {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e6e6e6;
+    display: block;
+    background-image: url("https://via.placeholder.com/50");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-username {
+  margin-left:15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.profile-section {
+  margin-top: 20px;
+}
+
+.profile-section-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.profile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.profile-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  display: block;
+}
+
+.profile-link:hover {
+  color: gray;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid #d6d6d6;
+  height: 60px;
+}
+
+.footer-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.footer-list-item {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-list-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.footer-list-item-content img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}

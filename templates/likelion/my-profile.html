@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="profile-page">
+    <h1>My Page</h1>
+    <div class="profile-header">
+        <img src="https://via.placeholder.com/50" alt="Profile Picture" class="profile-image">  <!-- Temporary placeholder -->
+        <div class="profile-info">
+            <span class="profile-username">username</span>
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <h2 class="profile-section-title">Account</h2>
+        <ul class="profile-list">
+            <li><a href="#" class="profile-link">Sign Out</a></li>
+            <li><a href="#" class="profile-link">Ask Question</a></li>
+            <li><a href="#" class="profile-link">Report</a></li>
+        </ul>
+    </div>
+
+    <div class="profile-section">
+        <h2 class="profile-section-title">User Guideline</h2>
+        <ul class="profile-list">
+            <li><a href="#" class="profile-link">서비스 이용약관</a></li>
+            <li><a href="#" class="profile-link">개인정보 처리방침</a></li>
+        </ul>
+    </div>
+</main>
+
+<footer class="footer"<span style = "position: fixed">
+    <ul class="footer-list">
+        <li class="footer-list-item">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    Dashboard
+                </span>
+            </a>
+        </li>
+        <li class="footer-list-item">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    My List
+                </span>
+            </a>
+        </li>
+        <li class="footer-list-item">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    My Profile
+                </span>
+            </a>
+    </ul>
+</footer>
+{% endblock %}

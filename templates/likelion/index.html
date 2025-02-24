@@ -1,0 +1,57 @@
+ {% extends 'base.html' %}
+{% block content %}
+<header class="header">
+    <a href="/">
+        <div class="logo-link">
+            <img src="/static/images/logo.svg" alt="번글 로고">
+        </div>
+    </a>
+    <div class="header-icons">
+        <div class="header-icon">🔍</div>  <!-- Search icon fallback -->
+        <div class="header-icon">🔔</div>  <!-- Notification icon fallback -->
+    </div>
+    <!--{% if user.is_authenticated %}
+    <a class="nav-link" href="{% url 'common:logout' %}">
+        <div class="login-link">
+            <button class="login-button">로그아웃</button>
+        </div>
+    </a>
+    {% else %}
+    <a href="{% url 'common:login' %}">
+        <div class="login-link">
+            <button class="login-button">로그인/가입</button>
+        </div>
+    </a>
+    {% endif %}-->
+</header>
+<main class="main-content">
+
+</main>
+<footer class="footer">
+    <ul class="footer-list">
+        <li class="footer-list-item">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    Dashboard
+                </span>
+            </a>
+        </li>
+        <li class="footer-list-item">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    My List
+                </span>
+            </a>
+        </li>
+        <li class="footer-list-item">
+            <a href="{% url 'likelion:my-profile' %}" class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    My Profile
+                </span>
+            </a>
+    </ul>
+</footer>
+{% endblock %}
