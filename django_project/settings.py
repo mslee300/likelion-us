@@ -16,7 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -32,15 +31,10 @@ CSRF_TRUSTED_ORIGINS = ["https://*.replit.dev", "https://*.replit.app"]
 # Application definition
 
 INSTALLED_APPS = [
-    'common.apps.CommonConfig',
-    'likelion.apps.LikelionConfig',
-    'pwa',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'common.apps.CommonConfig', 'likelion.apps.LikelionConfig', 'pwa',
+    'django.contrib.admin', 'django.contrib.auth',
+    'django.contrib.contenttypes', 'django.contrib.sessions',
+    'django.contrib.messages', 'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [
@@ -52,7 +46,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-# Only use clickjacking protection in deployments because the Development Web View uses 
+# Only use clickjacking protection in deployments because the Development Web View uses
 # iframes and needs to be a cross origin.
 if ("REPLIT_DEPLOYMENT" in os.environ):
     MIDDLEWARE.append('django.middleware.clickjacking.XFrameOptionsMiddleware')
@@ -77,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -88,25 +81,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -118,7 +113,6 @@ TIME_ZONE = 'America/Los_Angeles'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -146,24 +140,17 @@ PWA_APP_SCOPE = '/'
 PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_ICONS = [
-    {
-        'src': '/static/images/my_app_icon.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_ICONS_APPLE = [
-    {
-        'src': '/static/images/my_apple_icon.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_SPLASH_SCREEN = [
-    {
-        'src': '/static/images/icons/splash-640x1136.png',
-        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-    }
-]
+PWA_APP_ICONS = [{'src': '/static/images/my_app_icon.png', 'sizes': '160x160'}]
+PWA_APP_ICONS_APPLE = [{
+    'src': '/static/images/my_apple_icon.png',
+    'sizes': '160x160'
+}]
+PWA_APP_SPLASH_SCREEN = [{
+    'src':
+    '/static/images/icons/splash-640x1136.png',
+    'media':
+    '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+}]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'ko-kr'
 # PWA_APP_SHORTCUTS = [

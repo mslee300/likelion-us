@@ -14,21 +14,22 @@ class Company(models.Model):
     return f"{self.name} ({self.ticker}) - {self.category}"
 
 
+class Author(models.Model):
+  id = models.AutoField(primary_key=True)
+  username = models.CharField(max_length=50, unique=True)
+  name = models.CharField(max_length=100, null=True, blank=True)
+  profile_image_url = models.URLField(blank=True, null=True)
+
+
 # 트윗 모델
 class Tweet(models.Model):
-  tweet_id = models.CharField(max_length=50, unique=True)  # X API에서 가져온 트윗 ID
-  content = models.TextField()  # 트윗 내용
-  author_name = models.CharField(max_length=100)  # 작성자 이름
-  author_username = models.CharField(max_length=100)  # 작성자 사용자 이름 (@handle)
-  author_profile_image = models.URLField(blank=True,
-                                         null=True)  # 작성자 프로필 사진 URL
-  companies = models.ManyToManyField(Company,
-                                     related_name="tweets")  # 연관 회사들 (다대다)
-  posted_at = models.DateTimeField()  # 트윗 게시 시간
-  fetched_at = models.DateTimeField(auto_now_add=True)  # 데이터 수집 시간
-
-  def __str__(self):
-    return f"Tweet by {self.author_username}"
+  id = models.AutoField(primary_key=True)
+  tweet_url = models.CharField(max_length=200, null=True, blank=True)
+  content = models.TextField()
+  author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+  companies = models.ManyToManyField(Company, related_name="tweets")
+  posted_at = models.DateTimeField()
+  fetched_at = models.DateTimeField(auto_now_add=True)
 
 
 # AI 분석 결과 모델
@@ -39,10 +40,7 @@ class AIAnalysis(models.Model):
   company = models.ForeignKey(Company,
                               on_delete=models.CASCADE,
                               related_name="ai_analyses")  # 분석 대상 회사
-  positive_score = models.FloatField()  # 긍정 점수 (0~1)
-  negative_score = models.FloatField()  # 부정 점수 (0~1)
-  buy_recommendation = models.FloatField()  # 매수 추천 퍼센트 (0~100)
-  sell_recommendation = models.FloatField()  # 매도 추천 퍼센트 (0~100)
+  ai_score = models.IntegerField(0)  # 긍정 점수 (0~1)
   analyzed_at = models.DateTimeField(auto_now_add=True)  # 분석 시간
 
   class Meta:

@@ -1,7 +1,9 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 
+@import url('https://fonts.googleapis.com/css2 family=IBM+Plex+Serif:wght@400;600;700&display=swap');
+
 :root {
-  --primary-color: purple;
+  --primary-color: #7126F3;
   --secondary-color: white;
   --font-primary:  font-family: 'Inter', sans-serif;
 }
@@ -11,12 +13,14 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: auto;
+  background-color: rgb(245 245 245)
 }
 
 body {
-  /*max-width: 800px;
+  max-width: 480px;
   min-height: 100vh;
-  height: auto;*/
+  height: auto;
   box-sizing: border-box;
   font-size: 14px;
   color: black;
@@ -30,7 +34,6 @@ body {
 
 .container {
   max-width: 480px;
-  margin: 0 auto;  /* Centers the content */
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 8px;
 }
@@ -63,10 +66,11 @@ h2, p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  min-height: calc(100vh - 114px);
+  min-height: calc(100vh - 65px);
   background-color: white;
+  padding-bottom: 80px;
 }
 
 .header {
@@ -107,16 +111,291 @@ h2, p {
   height: 100%;
 }
 
+/* -------------------------------------- */
+/* Highlight Card (Above Trending)       */
+/* -------------------------------------- */
+
+.quote-card {
+  position: relative;
+  width: 100%; /* Make it flexible */
+  max-width: 480px; /* Prevent it from getting too large */
+  margin: 16px auto; /* Keep it centered */
+  padding: 0 16px; /* Add some padding on both left and right */
+  box-sizing: border-box; /* Ensure padding doesn’t increase width */
+  overflow: hidden;
+  font-family: 'Pretendard';
+  border-radius: 12px; /* Adds rounded corners */
+  background-color: white; /* Ensure visibility */
+}
+
+
+/* Background image fills the card */
+.card-bg-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: inherit; /* Make it follow the card’s border radius */
+}
+
+
+/* White border + large rounded corners */
+.card-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  z-index: 2;
+}
+
+/* Container for text & reaction boxes */
+.card-content {
+  margin-top: 25px;
+  position: absolute;
+  inset: 0;
+  z-index: 3;              /* Above background & border */
+  display: flex;
+  flex-direction: column;  /* Stack quote, author, rocket, then like/dislike */
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+/* Quote text (white, left-aligned) */
+.quote-text {
+  font-family: 'IBM Plex Serif', serif ;
+  font-style: italic;
+  /* Other properties you already have */
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  
+}
+
+/* Purple quotation marks */
+.quote-mark {
+  color: #7126F3;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 60%;
+}
+
+/* Author line: right-aligned, smaller font */
+.quote-author {
+  padding-left: 10px;
+  margin: 0 0 8px;
+  font-size: 10px; /* Adjust as needed */
+  color: #fff;
+  font-weight: semi-bold;
+  align-self: flex-end;
+}
+
+.quote-n-author {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left align children */
+  width: 50%;              /* Occupies the left half of the card */
+  text-align: left;        /* Ensure text inside is left-aligned */
+}
+
+/* Base style for all reaction boxes (rocket, like, dislike) */
+.reaction-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Rocket box: White background, centered horizontally */
+.rocket-box {
+  height: 30px;
+  width: 75px;
+  background-color: white;
+  align-self: center;    /* Centers it horizontally in the column */
+  margin-bottom: 12px;   /* Spacing before like/dislike row */
+}
+
+/* Like/Dislike row: side-by-side, also centered */
+.like-dislike-row {
+  display: flex;
+  gap: 16px;
+  align-self: center;    /* Center the row horizontally */
+}
+
+/* Like box: Purple background, fixed width/height */
+.like-box {
+  height: 40px;
+  width: 100px;
+  background-color: #7126F3;
+}
+
+/* Dislike box: White background, fixed width/height */
+.dislike-box {
+  height: 40px;
+  width: 100px;
+  background-color: #fff;
+}
+
+/* Icons inside the reaction boxes */
+.reaction-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+/* "76%" text inside the rocket box */
+.reaction-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: black;  /* If rocket box is white; use #fff if purple */
+  line-height: 1;
+}
+
+.like-icon, .dislike-icon {
+  display: flex;
+  justify-content: center;
+}
+
+/*백지원*/
+.dashboard-trending-container{
+  text-align:left !important;
+}
+
+.dashboard-trending-container h2{
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: left;
+  color: #000000;
+}
+
+.individual-trending-container{
+  display: flex;
+  margin-top:10px;
+  width: 345px;
+  height: 92px;
+  left: 24px;
+  top: 438px;
+  background: #DED6FF;
+  border-radius: 12px;
+
+}
+
+.trend-details{
+  gap: 10px;
+  align-items: flex-start;
+  justify-content:center;
+  min-height: 60px;
+}
+
+.trend-details-1{
+  margin-left: -35px;
+}
+
+.trend-info {
+  width: 345px;
+  position: relative;
+  display: flex;   
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%; 
+  gap: 15px;
+}
+
+.trend-image{
+  width: 60px;  
+  height: 60px; 
+  object-fit: cover; 
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.trend-name{
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+  color: #000000;
+  margin-top: 0px;
+}
+
+
+.trend-position {
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-start; 
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: left;
+  color: #000000;
+  margin-top: 4px;
+}
+
+.company-btn-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.company-btn{
+  background: #7126F3;
+  width: 42px;
+  height: 20px;
+  border-radius: 12px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  text-align: center;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border: none;
+}
+
+.add-button { 
+  background-size: cover;
+  background-color:#DED6FF;
+  background-position: center; 
+  width: 36px;
+  height: 36px;
+  margin-top: 0px; 
+  border: none;
+  cursor: pointer;
+  flex-direction: row;
+  margin-right: 20px;
+  align-items:center;
+}
+
+.trend-name,
+.trend-position,
+.company-btn-group{
+  display: block !important;
+}
+
 .footer {
   display: block;
   z-index: 204;
-  position: sticky;
+  position: fixed;
   bottom: 0px;
-  border-top: 1px solid #d6d6d6;
-  height: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 480px;
   width: 100%;
+  height: 65px;
+  border-top: 1px solid #d6d6d6;
   background-color: white;
 }
+
 
 .footer-list {
   list-style: none;

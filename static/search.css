@@ -1,0 +1,115 @@
+
+/* Optionally bump font size on bigger screens */
+@media (min-width: 420px) {
+  html {
+    font-size: 15px; /* Slightly larger on wider phones */
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 16px; /* On 480px or above, 1rem = 16px */
+  }
+}
+
+/* 2) Container that fits mobile screens up to 480px */
+.search-container {
+  width: 100%;       /* Fill the device width */
+  max-width: 480px;  /* Constrain at 480px if on a larger screen */
+  margin: 0 auto;    /* Center if on bigger screens */
+  box-sizing: border-box;
+  font-family: 'Pretendard';
+}
+
+/* --- Header with Back Arrow and Search Bar --- */
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.75rem 1rem; /* Using rem instead of px */
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+
+.search-back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  /* No fixed font-size needed since it's an icon; 
+     if it's text, use rem-based sizing. */
+}
+
+.search-bar {
+  flex: 1;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  height: 2.25rem;         /* ~36px at base font-size:14px */
+  padding: 0 0.75rem;      /* ~12px */
+  font-size: 1rem;         /* 14px base, up to 16px on bigger screens */
+  border: none;
+  border-radius: 0.5rem;   /* 8px at base font-size */
+  background-color: #f5f5f5;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* --- Trending Section --- */
+.trending-section {
+  padding: 1rem;    /* ~16px at base, grows on bigger screens */
+  box-sizing: border-box;
+}
+
+.trending-title {
+  font-size: 1.2rem;   /* ~16.8px at base, bigger on larger screens */
+  font-weight: bold;
+  margin-bottom: 0.75rem; /* ~12px */
+  line-height: 1.3;
+}
+
+/* We'll wrap tags, with a dynamic # of columns via media queries */
+.trending-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* ~12px */
+}
+
+/* Pill-shaped tag: use rem for consistent sizing */
+.trending-tag {
+  background-color: #DED6FF;
+  color: #4D22FF;
+  padding: 0.625rem 1rem; /* ~10px vertical, 16px horizontal */
+  border-radius: 0.75rem;  /* ~12px radius */
+  font-size: 1rem;         /* 14px base => up to 16px */
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.trending-tag:hover {
+  background-color: #c0b2f5;
+}
+
+/* 
+  3. Responsive columns for tags:
+  - For narrower screens (<360px): 2 columns
+  - For >=360px: 3 columns 
+*/
+@media (min-width: 360px) {
+  .trending-tag {
+    flex: 0 0 calc((100% - (2 * 0.75rem)) / 3);
+    /* Explanation: 2 gaps of 0.75rem => (100% - 1.5rem) / 3 columns */
+  }
+}
+@media (max-width: 359px) {
+  .trending-tag {
+    flex: 0 0 calc((100% - 0.75rem) / 2);
+    /* Explanation: 1 gap => (100% - 0.75rem) / 2 columns */
+  }
+}

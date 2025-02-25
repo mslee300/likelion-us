@@ -1,4 +1,5 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <header class="header">
     <a href="/">
@@ -6,9 +7,14 @@
             <img src="/static/images/logo.svg" alt="번글 로고">
         </div>
     </a>
+    <!-- 아이콘 변경 예정-->
     <div class="header-icons">
-        <div class="header-icon">🔍</div>  <!-- Search icon fallback -->
-        <div class="header-icon">🔔</div>  <!-- Notification icon fallback -->
+        <a href="{% url 'likelion:search' %}" class="header-icon">
+            <img src="/static/images/search.svg" alt="search">
+        </a>
+        <div class="header-icon">
+            <img src="/static/images/notifications.svg" alt="notifications">
+        </div>  
     </div>
     <!--{% if user.is_authenticated %}
     <a class="nav-link" href="{% url 'common:logout' %}">
@@ -25,31 +31,147 @@
     {% endif %}-->
 </header>
 <main class="main-content">
+<!-- main card-->
+    <section class="quote-card">
+      <!-- Background image (Jensen Huang) -->
+      <img 
+        src="{% static 'images/card-bg.png' %}" 
+        alt="Background" 
+        class="card-bg-image"
+      />
 
+      <!-- White border with rounded corners -->
+      <div class="card-border"></div>
+
+      <!-- Text & Reaction Overlay -->
+      <div class="card-content">
+        <!-- Quote (left-aligned) -->
+          <div class="quote-n-author">
+        <blockquote class="quote-text">
+          <span class="quote-mark">“</span> 
+          Very useful quantum <br>computers are still a <br>few decades away
+          <span class="quote-mark">”</span>
+        </blockquote>
+        <p class="quote-author">– Jensen Huang, CEO of Nvidia</p>
+          </div>
+
+        <!-- Rocket box: Purple, centered -->
+        <div class="reaction-box rocket-box">
+          <img 
+            src="{% static 'images/rocket.svg' %}" 
+            alt="Rocket" 
+            class="reaction-icon"
+          >
+          <span class="reaction-text">76%</span>
+        </div>
+
+        <!-- Like/Dislike row: Both centered, on their own line -->
+        <div class="like-dislike-row">
+          <div class="reaction-box like-box">
+            <img class="like-icon"
+              src="{% static 'images/like.svg' %}" 
+              alt="Like" 
+              class="reaction-icon"
+            >
+          </div>
+          <div class="reaction-box dislike-box">
+            <img class="dislike-icon"
+              src="{% static 'images/dislike.svg' %}" 
+              alt="Dislike" 
+              class="reaction-icon"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!--trending tickers -->
+    <div class = "dashboard-trending-container">
+        <h2>Trending</h2>
+        <div class="individual-trending-container">  
+            <div class="trend-info">
+                <img src="{% static 'images/trump.svg' %}" alt="trender" class="trend-image"></span>
+                <div class="trend-details">
+                    <span class="trend-name">Doland J. Trump</span>
+                    <span class="trend-position">President of United States of America</span>
+                    <div class="company-btn-group">
+                        <button class="company-btn" data-company="aapl">AAPL</button>
+                        <button class="company-btn" data-company="djt">DJT</button>
+                        <button class="company-btn" data-company="tsla">TSLA</button>
+                    </div>
+                </div>
+                <button class="add-to-profile add-button"  
+                        data-name="Doland J. Trump"
+                        style="background-image: url('{% static 'images/add.svg' %}');">
+                </button>
+            </div>
+        </div>  
+        <!--Nancy Pelosi-->
+        <div class="individual-trending-container">  
+            <div class="trend-info">
+                <img src="{% static 'images/nancy.svg' %}" alt="trender" class="trend-image"></span>
+                <div class="trend-details-1">
+                    <span class="trend-name">Nancy Pelosi</span>
+                    <span class="trend-position">American Politician</span>
+                    <div class="company-btn-group">
+                        <button class="company-btn" data-company="aapl">goog</button>
+                        <button class="company-btn" data-company="djt">amaz</button>
+                        <button class="company-btn" data-company="tsla">nvda</button>
+                    </div>
+                </div>
+                <button class="add-to-profile add-button"  
+                        data-name="Nancy Pelosi"
+                        style="background-image: url('{% static 'images/add.svg' %}');">
+                </button>
+            </div>
+        </div>  
+        <!--Elon Musk-->
+        <div class="individual-trending-container">  
+            <div class="trend-info">
+                <img src="{% static 'images/elon.svg' %}" alt="trender" class="trend-image"></span>
+                <div class="trend-details-1">
+                    <span class="trend-name">Elon Musk</span>
+                    <span class="trend-position">CEO of Tesla Inc.</span>
+                    <div class="company-btn-group">
+                        <button class="company-btn" data-company="aapl">tesla</button>
+                        <button class="company-btn" data-company="djt">nvda</button>
+                        <button class="company-btn" data-company="tsla">meta</button>
+                    </div>
+                </div>
+                <button class="add-to-profile add-button"  
+                        data-name="Nancy Pelosi"
+                        style="background-image: url('{% static 'images/add.svg' %}');">
+                </button>
+            </div>
+        </div> 
+    </div>
+
+    
 </main>
 <footer class="footer">
     <ul class="footer-list">
+        <!-- my list -->
         <li class="footer-list-item">
             <a class="footer-list-item-link">
                 <span class="footer-list-item-content">
-                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
-                    Dashboard
+                    <img src="/static/images/dashboard.svg" alt="dashboard">
                 </span>
             </a>
         </li>
+        <!-- my list -->
         <li class="footer-list-item">
-            <a class="footer-list-item-link">
+            <a href="{% url 'likelion:my-list' %}" class="footer-list-item-link">
                 <span class="footer-list-item-content">
-                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
-                    My List
+                    <img src="/static/images/my-list.svg" alt="my-l">
                 </span>
             </a>
         </li>
+        <!-- my profile -->
         <li class="footer-list-item">
             <a href="{% url 'likelion:my-profile' %}" class="footer-list-item-link">
                 <span class="footer-list-item-content">
-                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
-                    My Profile
+                    <img src="/static/images/my-profile.svg" alt="my-profile">
+
                 </span>
             </a>
     </ul>

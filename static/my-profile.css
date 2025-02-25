@@ -2,6 +2,9 @@
   margin: 0 auto;
   padding: 20px;
   background-color: white;
+  min-height: calc(100vh - 65px); /* Ensures content fills the screen and footer is always at bottom */
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-header {
@@ -12,16 +15,15 @@
 }
 
 .profile-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #e6e6e6;
-    display: block;
-    background-image: url("https://via.placeholder.com/50");
-    background-size: cover;
-    background-position: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+  display: block;
+  background-image: url("https://via.placeholder.com/50");
+  background-size: cover
+  background-position: center;
 }
-
 
 .profile-info {
   display: flex;
@@ -29,7 +31,7 @@
 }
 
 .profile-username {
-  margin-left:15px;
+  margin-left: 15px;
   font-size: 16px;
   font-weight: bold;
   color: black;
@@ -37,6 +39,8 @@
 
 .profile-section {
   margin-top: 20px;
+  flex-grow: 1; /* Pushes footer to bottom */
+  
 }
 
 .profile-section-title {
@@ -68,42 +72,9 @@
   color: gray;
 }
 
-/* Footer */
+/* Ensure footer is always at the bottom */
 .footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: white;
-  border-top: 1px solid #d6d6d6;
-  height: 60px;
-}
-
-.footer-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.footer-list-item {
-  text-align: center;
-  flex: 1;
-}
-
-.footer-list-item-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-}
-
-.footer-list-item-content img {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 4px;
 }

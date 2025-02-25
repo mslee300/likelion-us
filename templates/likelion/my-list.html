@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-search-->
+<<header>
+    <a href="/">
+        <div class="logo-link">
+            <img src="/static/images/logo.svg" alt="번글 로고">
+        </div>
+    </a>
+    <div class="mylist-search-container">
+        <input type="text" id="mylist-search-input" placeholder="Search in my list">
+    </div>
+</header>
+
+
+<!--list in my list-->
+    <div class = "Categories">
+        <h3>My people</h3>
+        <div class = "company-container">
+        <div class = "company" id="my-people"></div>
+    </div>
+        <h3>My companies</h3>
+    <div class = "company-container">
+        <div class = "company" id="my-companies"></div>
+    </div> 
+        
+<!------------------footer-------------------->
+<footer class="footer"<span style = "position: fixed">
+    <ul class="footer-list">
+        <li class="footer-list-item">
+                <a href="{% url 'likelion:index' %}" class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    Dashboard
+                </span>
+            </a>
+        </li>
+        <li class="footer-list-item">
+            <a href="{% url 'likelion:my-list' %}" class="footer-list-item-link">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    My List
+                </span>
+            </a>
+        </li>
+        <li class="footer-list-item">
+            <a class="footer-list-item-link">
+                <span class="footer-list-item-content">
+                    <img src="/static/images/dummy-footer-icon.svg" alt="더미 이미지">
+                    My Profile
+                </span>
+            </a>
+    </ul>
+</footer>
+    {% endblock %}
+
+
+<!--------------------자바 시작 ----------------------->
+<script>
+// sample (People & Companies)
+const people = [
+{ name: "Elon Musk", img: "elon.png" },
+{ name: "Bill Gates", img: "gates.png" },
+{ name: "Steve Jobs", img: "jobs.png" }
+];
+
+const companies = [
+{ name: "Apple", img: "apple.png", price: "$175.43", change: "+1.2%" },
+{ name: "Microsoft", img: "microsoft.png", price: "$312.21", change: "-0.8%" },
+{ name: "Tesla", img: "tesla.png", price: "$225.67", change: "+3.5%" }
+];
+
+// user added
+const myPeople = [];
+const myCompanies = [];
+
+// add card
+function createCard(item, category) {
+const card = document.createElement("div");
+card.classList.add("stock-card");
+
+card.innerHTML = `
+    <img src="images/${item.img}" alt="${item.name} Logo">
+    <h3>${item.name}</h3>
+    ${category === "companies" ? `<p>${item.price}</p><p class="${getStockChangeClass(item.change)}">${item.change}</p>` : ""}
+    <button class="add-btn" onclick="addToList('${category}', '${item.name}')">Add</button>
+`;
+
+return card;
+}
+
+//add in list
+function addToList(category, name) {
+let item;
+if (category === "people") {
+    item = people.find(p => p.name === name);
+    if (!myPeople.some(p => p.name === name)) myPeople.push(item);
+} else {
+    item = companies.find(c => c.name === name);
+    if (!myCompanies.some(c => c.name === name)) myCompanies.push(item);
+}
+
+updateMyList();
+}
+
+//update my list
+function updateMyList() {
+const myPeopleContainer = document.getElementById("my-people");
+const myCompaniesContainer = document.getElementById("my-companies");
+
+myPeopleContainer.innerHTML = "";
+myCompaniesContainer.innerHTML = "";
+
+myPeople.forEach(person => {
+    myPeopleContainer.appendChild(createCard(person, "people"));
+});
+
+myCompanies.forEach(company => {
+    myCompaniesContainer.appendChild(createCard(company, "companies"));
+});
+}
+
+//change the stock class
+function getStockChangeClass(change) {
+if (!change) return ""; // no need in people
+if (change.includes("+")) return "stock-up";
+if (change.includes("-")) return "stock-down";
+return "stock-neutral";
+}
+
+// show inital data
+const peopleContainer = document.getElementById("people-list");
+const companiesContainer = document.getElementById("companies-list");
+
+people.forEach(person => peopleContainer.appendChild(createCard(person, "people")));
+companies.forEach(company => companiesContainer.appendChild(createCard(company, "companies")));
+
+// search
+function performSearch() {
+    let query = document.getElementById("search-input").value.toLowerCase();
+
+    if (query === "") return;
+
+    const filteredPeople = myPeople.filter(p => p.name.toLowerCase().includes(query));
+    const filteredCompanies = myCompanies.filter(c => c.name.toLowerCase().includes(query));
+
+    const myPeopleContainer = document.getElementById("my-people");
+    const myCompaniesContainer = document.getElementById("my-companies");
+
+        myPeopleContainer.innerHTML = "";
+        myCompaniesContainer.innerHTML = "";
+
+        filteredPeople.forEach(person => myPeopleContainer.appendChild(createCard(person, "people")));
+        filteredCompanies.forEach(company => myCompaniesContainer.appendChild(createCard(company, "companies")));
+    }
+
+    document.getElementById("search-input").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();  
+            performSearch();
+        }
+    });
+
+</script>

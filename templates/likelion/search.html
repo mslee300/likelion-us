@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<header class="search-header">
+  <button class="search-back-button" onclick="history.back()">
+    <img src="{% static 'images/back.svg' %}" alt="back-button">
+  </button>
+  <div class="search-bar">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search Ticker or Company Name"
+    />
+  </div>
+</header>
+
+<main class="search-container">
+  <section class="trending-section">
+    <h2 class="trending-title">Trending</h2>
+    <div class="trending-tags">
+      <div class="trending-tag">Nvidia</div>
+      <div class="trending-tag">Tesla</div>
+      <div class="trending-tag">Microsoft</div>
+      <div class="trending-tag">Donald Trump</div>
+      <div class="trending-tag">Palantir</div>
+      <div class="trending-tag">Tempus AI</div>
+      <div class="trending-tag">Apple</div>
+    </div>
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,142 @@
+[
+  {
+    "No": 1,
+    "tweet_content": "Tesla stock price is too high imo.",
+    "author": "Elon Musk",
+    "tweet_link": "https://twitter.com/elonmusk/status/1260000000000000000",
+    "related_companies": ["Tesla Inc. (TSLA)"]
+  },
+  {
+    "No": 2,
+    "tweet_content": "Am considering taking Tesla private at $420. Funding secured.",
+    "author": "Elon Musk",
+    "tweet_link": "https://twitter.com/elonmusk/status/1020000000000000000",
+    "related_companies": ["Tesla Inc. (TSLA)"]
+  },
+  {
+    "No": 3,
+    "tweet_content": "I fully endorse President Trump and hope for his rapid recovery.",
+    "author": "Elon Musk",
+    "tweet_link": "https://twitter.com/elonmusk/status/1300000000000000000",
+    "related_companies": ["Tesla Inc. (TSLA)"]
+  },
+  {
+    "No": 4,
+    "tweet_content": "I’m excited for the future of the US!",
+    "author": "Elon Musk",
+    "tweet_link": "https://twitter.com/elonmusk/status/1320000000000000000",
+    "related_companies": ["Tesla Inc. (TSLA)", "SpaceX"]
+  },
+  {
+    "No": 5,
+    "tweet_content": "The blockchain technology is the future of the financial world.",
+    "author": "Sam Altman",
+    "tweet_link": "https://twitter.com/sama/status/1200000000000000000",
+    "related_companies": ["OpenAI", "Stripe"]
+  },
+  {
+    "No": 6,
+    "tweet_content": "We’re moving quickly on AI advancements.",
+    "author": "Sam Altman",
+    "tweet_link": "https://twitter.com/sama/status/1210000000000000000",
+    "related_companies": ["OpenAI", "Stripe"]
+  },
+  {
+    "No": 7,
+    "tweet_content": "Our vision for America is not about revenge, it's about restoring hope.",
+    "author": "Donald Trump",
+    "tweet_link": "https://twitter.com/realDonaldTrump/status/1200000000000000000",
+    "related_companies": ["Trump Organization"]
+  },
+  {
+    "No": 8,
+    "tweet_content": "I will run for president again in 2024.",
+    "author": "Donald Trump",
+    "tweet_link": "https://twitter.com/realDonaldTrump/status/1300000000000000000",
+    "related_companies": ["Trump Organization"]
+  },
+  {
+    "No": 9,
+    "tweet_content": "The economy is booming, and we will continue to make America great again.",
+    "author": "Donald Trump",
+    "tweet_link": "https://twitter.com/realDonaldTrump/status/1300000000000000000",
+    "related_companies": ["Trump Organization"]
+  },
+  {
+    "No": 10,
+    "tweet_content": "The 2020 election was rigged.",
+    "author": "Donald Trump",
+    "tweet_link": "https://twitter.com/realDonaldTrump/status/1320000000000000000",
+    "related_companies": ["Trump Organization"]
+  },
+  {
+    "No": 11,
+    "tweet_content": "I've never seen an investment opportunity quite like this before.",
+    "author": "Warren Buffett",
+    "tweet_link": "https://twitter.com/warrenbuffett/status/1310000000000000000",
+    "related_companies": ["Berkshire Hathaway (BRK.A)", "Coca-Cola (KO)"]
+  },
+  {
+    "No": 12,
+    "tweet_content": "Investing is not about timing the market, it's about time in the market.",
+    "author": "Warren Buffett",
+    "tweet_link": "https://twitter.com/warrenbuffett/status/1350000000000000000",
+    "related_companies": ["Berkshire Hathaway (BRK.A)", "Coca-Cola (KO)"]
+  },
+  {
+    "No": 13,
+    "tweet_content": "Buffet rule: Don't bet against America!",
+    "author": "Warren Buffett",
+    "tweet_link": "https://twitter.com/warrenbuffett/status/1300000000000000000",
+    "related_companies": ["Berkshire Hathaway (BRK.A)", "Coca-Cola (KO)"]
+  },
+  {
+    "No": 14,
+    "tweet_content": "You need to have a sound financial strategy. Always invest in what you understand.",
+    "author": "Warren Buffett",
+    "tweet_link": "https://twitter.com/warrenbuffett/status/1210000000000000000",
+    "related_companies": ["Berkshire Hathaway (BRK.A)", "Coca-Cola (KO)"]
+  },
+  {
+    "No": 15,
+    "tweet_content": "Apple is one of the greatest businesses in the world.",
+    "author": "Warren Buffett",
+    "tweet_link": "https://twitter.com/warrenbuffett/status/1340000000000000000",
+    "related_companies": ["Apple Inc. (AAPL)"]
+  },
+  {
+    "No": 16,
+    "tweet_content": "The future of electric vehicles is bright.",
+    "author": "Bill Gates",
+    "tweet_link": "https://twitter.com/billgates/status/1250000000000000000",
+    "related_companies": ["Microsoft (MSFT)", "Tesla (TSLA)"]
+  },
+  {
+    "No": 17,
+    "tweet_content": "AI is transforming industries worldwide, and we are only getting started.",
+    "author": "Bill Gates",
+    "tweet_link": "https://twitter.com/billgates/status/1300000000000000000",
+    "related_companies": ["Microsoft (MSFT)"]
+  },
+  {
+    "No": 18,
+    "tweet_content": "Investing in clean energy solutions will pay dividends for generations.",
+    "author": "Bill Gates",
+    "tweet_link": "https://twitter.com/billgates/status/1310000000000000000",
+    "related_companies": ["Microsoft (MSFT)", "NextEra Energy (NEE)"]
+  },
+  {
+    "No": 19,
+    "tweet_content": "We need to focus on health innovation and access to medicine for everyone.",
+    "author": "Bill Gates",
+    "tweet_link": "https://twitter.com/billgates/status/1340000000000000000",
+    "related_companies": ["Microsoft (MSFT)", "Berkshire Hathaway (BRK.A)"]
+  },
+  {
+    "No": 20,
+    "tweet_content": "SpaceX has a bright future with more Mars exploration to come.",
+    "author": "Elon Musk",
+    "tweet_link": "https://twitter.com/elonmusk/status/1420000000000000000",
+    "related_companies": ["SpaceX", "Tesla Inc. (TSLA)"]
+  }
+]

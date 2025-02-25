@@ -1,0 +1,345 @@
+[
+    {
+        "name": "Apple Inc.",
+        "symbol": "AAPL",
+        "category": "Information Technology",
+        "founding_date": "1976-04-01",
+        "description": "Designs and manufactures innovative consumer electronics like iPhones and Macs."
+    },
+    {
+        "name": "Microsoft Corporation",
+        "symbol": "MSFT",
+        "category": "Information Technology",
+        "founding_date": "1975-04-04",
+        "description": "Develops software solutions including Windows and cloud services like Azure."
+    },
+    {
+        "name": "NVIDIA Corporation",
+        "symbol": "NVDA",
+        "category": "Information Technology",
+        "founding_date": "1993-02-01",
+        "description": "Leads in GPU technology for gaming, AI, and data centers."
+    },
+    {
+        "name": "Saudi Aramco",
+        "symbol": "2222.SR",
+        "category": "Energy",
+        "founding_date": "1933-05-29",
+        "description": "World's largest oil producer, managing vast petroleum reserves."
+    },
+    {
+        "name": "Alphabet Inc.",
+        "symbol": "GOOGL",
+        "category": "Communication Services",
+        "founding_date": "1998-09-04",
+        "description": "Operates Google, focusing on search, ads, and innovative tech."
+    },
+    {
+        "name": "Amazon.com Inc.",
+        "symbol": "AMZN",
+        "category": "Consumer Discretionary",
+        "founding_date": "1994-07-05",
+        "description": "Global leader in e-commerce and cloud computing with AWS."
+    },
+    {
+        "name": "Tesla, Inc.",
+        "symbol": "TSLA",
+        "category": "Consumer Discretionary",
+        "founding_date": "2003-07-01",
+        "description": "Pioneers electric vehicles and renewable energy solutions."
+    },
+    {
+        "name": "Meta Platforms Inc.",
+        "symbol": "META",
+        "category": "Communication Services",
+        "founding_date": "2004-02-04",
+        "description": "Runs social media platforms like Facebook and Instagram."
+    },
+    {
+        "name": "Broadcom Inc.",
+        "symbol": "AVGO",
+        "category": "Information Technology",
+        "founding_date": "1961-08-01",
+        "description": "Produces semiconductors for networking and communications."
+    },
+    {
+        "name": "Taiwan Semiconductor Manufacturing Company",
+        "symbol": "TSM",
+        "category": "Information Technology",
+        "founding_date": "1987-02-21",
+        "description": "World's top chip foundry, manufacturing semiconductors."
+    },
+    {
+        "name": "Eli Lilly and Company",
+        "symbol": "LLY",
+        "category": "Health Care",
+        "founding_date": "1876-05-10",
+        "description": "Develops pharmaceuticals, especially in diabetes and oncology."
+    },
+    {
+        "name": "Walmart Inc.",
+        "symbol": "WMT",
+        "category": "Consumer Staples",
+        "founding_date": "1962-07-02",
+        "description": "Operates a global chain of retail stores for everyday goods."
+    },
+    {
+        "name": "JPMorgan Chase & Co.",
+        "symbol": "JPM",
+        "category": "Financials",
+        "founding_date": "2000-12-31",
+        "description": "Offers banking and financial services worldwide."
+    },
+    {
+        "name": "UnitedHealth Group Incorporated",
+        "symbol": "UNH",
+        "category": "Health Care",
+        "founding_date": "1977-01-01",
+        "description": "Provides health insurance and medical services."
+    },
+    {
+        "name": "Visa Inc.",
+        "symbol": "V",
+        "category": "Financials",
+        "founding_date": "1958-09-18",
+        "description": "Facilitates global payment networks and services."
+    },
+    {
+        "name": "Novo Nordisk A/S",
+        "symbol": "NVO",
+        "category": "Health Care",
+        "founding_date": "1923-11-21",
+        "description": "Specializes in diabetes care and biopharmaceuticals."
+    },
+    {
+        "name": "ExxonMobil Corporation",
+        "symbol": "XOM",
+        "category": "Energy",
+        "founding_date": "1999-11-30",
+        "description": "Engages in oil and gas exploration and production."
+    },
+    {
+        "name": "Home Depot Inc.",
+        "symbol": "HD",
+        "category": "Consumer Discretionary",
+        "founding_date": "1978-02-06",
+        "description": "Retails home improvement and construction products."
+    },
+    {
+        "name": "Procter & Gamble Co.",
+        "symbol": "PG",
+        "category": "Consumer Staples",
+        "founding_date": "1837-10-31",
+        "description": "Manufactures household and personal care products."
+    },
+    {
+        "name": "Mastercard Incorporated",
+        "symbol": "MA",
+        "category": "Financials",
+        "founding_date": "1966-12-16",
+        "description": "Provides global payment processing solutions."
+    },
+    {
+        "name": "Johnson & Johnson",
+        "symbol": "JNJ",
+        "category": "Health Care",
+        "founding_date": "1886-01-01",
+        "description": "Produces medical devices, pharmaceuticals, and consumer goods."
+    },
+    {
+        "name": "Merck & Co., Inc.",
+        "symbol": "MRK",
+        "category": "Health Care",
+        "founding_date": "1891-01-01",
+        "description": "Develops vaccines and medicines for various diseases."
+    },
+    {
+        "name": "AbbVie Inc.",
+        "symbol": "ABBV",
+        "category": "Health Care",
+        "founding_date": "2013-01-01",
+        "description": "Focuses on biopharmaceuticals, especially immunology."
+    },
+    {
+        "name": "Salesforce, Inc.",
+        "symbol": "CRM",
+        "category": "Information Technology",
+        "founding_date": "1999-02-03",
+        "description": "Offers cloud-based CRM and enterprise software."
+    },
+    {
+        "name": "Toyota Motor Corporation",
+        "symbol": "TM",
+        "category": "Consumer Discretionary",
+        "founding_date": "1937-08-28",
+        "description": "Manufactures vehicles and automotive components."
+    },
+    {
+        "name": "Bank of America Corporation",
+        "symbol": "BAC",
+        "category": "Financials",
+        "founding_date": "1998-10-01",
+        "description": "Provides banking and investment services."
+    },
+    {
+        "name": "Coca-Cola Company",
+        "symbol": "KO",
+        "category": "Consumer Staples",
+        "founding_date": "1892-01-29",
+        "description": "Produces and markets soft drinks globally."
+    },
+    {
+        "name": "PepsiCo, Inc.",
+        "symbol": "PEP",
+        "category": "Consumer Staples",
+        "founding_date": "1965-08-24",
+        "description": "Manufactures beverages and snack foods."
+    },
+    {
+        "name": "Oracle Corporation",
+        "symbol": "ORCL",
+        "category": "Information Technology",
+        "founding_date": "1977-06-16",
+        "description": "Develops database software and cloud solutions."
+    },
+    {
+        "name": "Adobe Inc.",
+        "symbol": "ADBE",
+        "category": "Information Technology",
+        "founding_date": "1982-12-01",
+        "description": "Creates software for design and digital media."
+    },
+    {
+        "name": "Cisco Systems, Inc.",
+        "symbol": "CSCO",
+        "category": "Information Technology",
+        "founding_date": "1984-12-10",
+        "description": "Produces networking hardware and software."
+    },
+    {
+        "name": "Pfizer Inc.",
+        "symbol": "PFE",
+        "category": "Health Care",
+        "founding_date": "1849-01-01",
+        "description": "Develops vaccines and pharmaceuticals."
+    },
+    {
+        "name": "Thermo Fisher Scientific Inc.",
+        "symbol": "TMO",
+        "category": "Health Care",
+        "founding_date": "2006-11-09",
+        "description": "Supplies scientific equipment and services."
+    },
+    {
+        "name": "Chevron Corporation",
+        "symbol": "CVX",
+        "category": "Energy",
+        "founding_date": "1879-06-19",
+        "description": "Explores and refines oil and natural gas."
+    },
+    {
+        "name": "Accenture plc",
+        "symbol": "ACN",
+        "category": "Information Technology",
+        "founding_date": "1989-01-01",
+        "description": "Provides consulting and IT services."
+    },
+    {
+        "name": "Wells Fargo & Company",
+        "symbol": "WFC",
+        "category": "Financials",
+        "founding_date": "1852-03-18",
+        "description": "Offers banking and financial products."
+    },
+    {
+        "name": "General Electric Company",
+        "symbol": "GE",
+        "category": "Industrials",
+        "founding_date": "1892-04-15",
+        "description": "Manufactures industrial equipment and turbines."
+    },
+    {
+        "name": "IBM Corporation",
+        "symbol": "IBM",
+        "category": "Information Technology",
+        "founding_date": "1911-06-16",
+        "description": "Develops hardware and AI-driven software."
+    },
+    {
+        "name": "Goldman Sachs Group, Inc.",
+        "symbol": "GS",
+        "category": "Financials",
+        "founding_date": "1869-01-01",
+        "description": "Provides investment banking and securities services."
+    },
+    {
+        "name": "T-Mobile US, Inc.",
+        "symbol": "TMUS",
+        "category": "Communication Services",
+        "founding_date": "1994-01-01",
+        "description": "Offers wireless communication services."
+    },
+    {
+        "name": "Intel Corporation",
+        "symbol": "INTC",
+        "category": "Information Technology",
+        "founding_date": "1968-07-18",
+        "description": "Manufactures microprocessors and chips."
+    },
+    {
+        "name": "Verizon Communications Inc.",
+        "symbol": "VZ",
+        "category": "Communication Services",
+        "founding_date": "1983-10-07",
+        "description": "Provides telecom and internet services."
+    },
+    {
+        "name": "AT&T Inc.",
+        "symbol": "T",
+        "category": "Communication Services",
+        "founding_date": "1983-10-05",
+        "description": "Delivers telecommunication and media services."
+    },
+    {
+        "name": "Morgan Stanley",
+        "symbol": "MS",
+        "category": "Financials",
+        "founding_date": "1935-09-16",
+        "description": "Offers financial advisory and wealth management."
+    },
+    {
+        "name": "Philip Morris International Inc.",
+        "symbol": "PM",
+        "category": "Consumer Staples",
+        "founding_date": "2008-03-28",
+        "description": "Produces tobacco and nicotine products."
+    },
+    {
+        "name": "Caterpillar Inc.",
+        "symbol": "CAT",
+        "category": "Industrials",
+        "founding_date": "1925-04-15",
+        "description": "Manufactures heavy machinery and equipment."
+    },
+    {
+        "name": "NextEra Energy, Inc.",
+        "symbol": "NEE",
+        "category": "Utilities",
+        "founding_date": "1925-12-28",
+        "description": "Generates and distributes electric power."
+    },
+    {
+        "name": "Costco Wholesale Corporation",
+        "symbol": "COST",
+        "category": "Consumer Staples",
+        "founding_date": "1983-09-15",
+        "description": "Operates membership-based retail warehouses."
+    },
+    {
+        "name": "Berkshire Hathaway Inc.",
+        "symbol": "BRK-B",
+        "category": "Financials",
+        "founding_date": "1839-01-01",
+        "description": "Invests in diverse industries and insurance."
+    }
+]
