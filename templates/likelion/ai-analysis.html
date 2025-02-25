@@ -27,14 +27,32 @@
       </p>
       <p class="ai-quote-author">– Jensen Huang, CEO of Nvidia</p>
       <p class="ai-quote-date">– Jan. 8 2:44 PM EST</p>
+      <hr class="custom-line">
+      <h2 class="ai-drop-probability-title">IonQ's Drop Probability:</h2>
+      <div class="ai-drop-probability-container">
+        <img class="ai-red" src="{% static 'images/increase-red.svg' %}" alt="Increase Red">
+        <span class="ai-drop-probability-value">87%</span>
+      </div>
+      <!-- Like/Dislike row: Both centered, on their own line -->
+      <div class="like-dislike-row">
+        <div class="reaction-box like-box">
+          <img class="like-icon"
+            src="{% static 'images/like.svg' %}" 
+            alt="Like" 
+            class="reaction-icon"
+          >
+            <span class="like-button-text">Like</span>
+        </div>
+        <div class="reaction-box dislike-box">
+          <img class="dislike-icon"
+            src="{% static 'images/dislike.svg' %}" 
+            alt="Dislike" 
+            class="reaction-icon"
+          >
+            <span class="dislike-button-text">Dislike</span>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <!-- Drop Probability Section -->
-  <section class="ai-drop-probability-section">
-    <h2 class="ai-drop-probability-title">IonQ's Drop Probability:</h2>
-    <img class="ai-red"src="{% static 'images/increase-red.svg' %}" alt="Increase Red">
-    <span class="ai-drop-probability-value">87%</span>
   </section>
 
   <!-- Discussion Section -->

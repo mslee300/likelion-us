@@ -2,30 +2,71 @@
 {% load static %}
 {% block content %}
 
-<!-search-->
-<<header>
-    <a href="/">
-        <div class="logo-link">
-            <img src="/static/images/logo.svg" alt="번글 로고">
+<div class="ml-container">
+  <!-- Header with Search Bar -->
+  <header class="ml-header">
+    <div class="ml-search-bar">
+      <input
+        type="text"
+        class="ml-search-input"
+        placeholder="Search People or Company Name"
+      />
+    </div>
+  </header>
+
+  <main class="ml-main">
+    <!-- My People Section -->
+    <section class="ml-section">
+      <h2 class="ml-section-title">My People</h2>
+      <div class="ml-carousel">
+        <!-- Card 1 -->
+        <div class="ml-card-person">
+            <img src="{% static 'images/Nancy-Pelosi.png' %}" alt="Nancy Pelosi" class="NP-image">
+          <p class="ml-card-name">Nancy Pelosi</p>
         </div>
-    </a>
-    <div class="mylist-search-container">
-        <input type="text" id="mylist-search-input" placeholder="Search in my list">
-    </div>
-</header>
+        <!-- Card 2 -->
+        <div class="ml-card-person">
+            <img src="{% static 'images/elon-musk.png' %}" alt="Elon Musk" class="EM-image">
+          <p class="ml-card-name">Elon Musk</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="ml-card-person">
+            <img src="{% static 'images/donald-trump.png' %}" alt="Donald Trump" class="DT-image">
+          <p class="ml-card-name">Donald J. Trump</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="ml-card-person">
+            <img src="{% static 'images/tim-cook.png' %}" alt="Tim Cook" class="TC-image">
+          <p class="ml-card-name">Tim Cook</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- My Company Section -->
+    <section class="ml-section">
+      <h2 class="ml-section-title">My Company</h2>
+      <div class="ml-carousel">
+        <!-- Card 1 -->
+        <div class="ml-card-company">
+            <img src="{% static 'images/apple.png' %}" alt="Apple" class="ml-company-logo">
+        </div>
+        <!-- Card 2 -->
+        <div class="ml-card-company">
+            <img src="{% static 'images/tesla.png' %}" alt="Tesla" class="ml-company-logo">
+        </div>
+        <!-- Card 3 -->
+        <div class="ml-card-company">
+            <img src="{% static 'images/nvdia.png' %}" alt="Nvdia" class="ml-company-logo">
+        </div>
+        <!-- Card 4 -->
+        <div class="ml-card-company">
+            <img src="{% static 'images/microsoft.png' %}" alt="Microsoft" class="ml-company-logo">
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
 
-<!--list in my list-->
-    <div class = "Categories">
-        <h3>My people</h3>
-        <div class = "company-container">
-        <div class = "company" id="my-people"></div>
-    </div>
-        <h3>My companies</h3>
-    <div class = "company-container">
-        <div class = "company" id="my-companies"></div>
-    </div> 
-        
 <!------------------footer-------------------->
 <footer class="footer"<span style = "position: fixed">
     <ul class="footer-list">
@@ -57,6 +98,19 @@
 
 <!--------------------자바 시작 ----------------------->
 <script>
+
+
+        // Scroll by a fixed amount (e.g., 100px). Adjust as needed.
+        const scrollAmount = 100;
+
+        btnLeft.addEventListener('click', () => {
+          carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        btnRight.addEventListener('click', () => {
+          carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+      });
+    });
 // sample (People & Companies)
 const people = [
 { name: "Elon Musk", img: "elon.png" },

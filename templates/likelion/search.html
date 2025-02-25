@@ -47,13 +47,14 @@
       <h3 class="search-result-section-title">Companies</h3>
       <div class="card-container">
         {% for company in companies %}
-        <div class="card">
-          <div class="image-container"></div>
+        <div class="card" onclick="locaion.href='/company/?q={{company.id}}'">
+          <div class="image-container">
+            <img src="{{company.logo_url}}" alt="logo" class="logo">
+          </div>
           <div class="card-body">
             <h5 class="card-title">{{ company.name }}
-              <img src="https://api.twelvedata.com/logo?symbol=AAPL&apikey=c79378a0eb5b414fb3b8b54b84e64a06" alt="badge" class="badge">
+              <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
             </h5>
-            <span class="search-result-company-description">Tesla is an automotive company that manufactures electric vehicles, solar panels, and energy storage systems.</span>
           </div>
         </div>
         {% empty %}
@@ -65,10 +66,12 @@
     <!-- Display People -->
     {% if people %}
     <h3>Person</h3>
-    <div class="card-container">
+    <div class="card-container" onclick="window.location.href='/person/?q={{ person.id }}'">
       {% for person in people %}
       <div class="card">
-        <div class="image-container"></div>
+        <div class="image-container">
+          <img src="{{person.profile_image_url}}" alt="trender" class="logo">
+        </div>
         <div class="card-body">
           <h5 class="card-title">{{ person.name }}
             <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
@@ -90,14 +93,18 @@
     <div class="card-container">
       {% for tweet in tweets %}
       <div class="card">
-        <div class="image-container"></div>
+        <div class="image-container">
+          <img src="{{tweet.author.profile_image_url}}" alt="trender" class="logo">
+        </div>
         <div class="card-body">
           <h5 class="card-title">{{ tweet.author.name }}
             <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
           </h5>
           <p class="search-result-post-description">"{{ tweet.content }}"</p>
           <div class="company-btn-group-search-result">
-              <button class="company-btn" data-company="aapl">AAPL</button>
+            {% for company in tweet.companies.all %}
+            <button class="company-btn">{{company.ticker}}</button>
+            {% endfor %}
           </div>
         </div>
       </div>

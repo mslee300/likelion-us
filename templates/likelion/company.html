@@ -20,7 +20,7 @@
             </div>
             <span class="influencer-position">{{ company.description }}</span>
             <div class="company-btn-group">
-                {% for company in company.companies.all %}
+                {% for company in tweet.companies.all %}
                 <button class="company-btn">{{company.ticker}}</button>
                 {% endfor %}
             </div>

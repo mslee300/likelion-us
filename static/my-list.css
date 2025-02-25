@@ -1,65 +1,152 @@
-.mylist-search-container,
-.Categories,
-.company-container,
-.company,
-.footer-list,
-.mylist-mylist-search-container{
-    text-align: left;
+/* Base reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Pretendard', sans-serif;
 }
 
-.mylist-search-container {
+/* Container: 90% width, up to 480px, centered */
+.ml-container {
+  width: 90%;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+/* Header with Search Bar */
+.ml-header {
+  padding: 16px 0;
+}
+
+.ml-search-bar {
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
-  padding: 16px; 
+  justify-content: center;
+  padding: 0 16px;
 }
 
-.mylist-search-container input {
-  width: 300px;
-  padding: 10px;
-  font-size: 16px;
+.ml-search-input {
+  width: 100%;
+  height: 40px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: none;
+  background-color: #f5f5f5;
+  padding: 0 12px;
+  outline: none;
 }
 
-.Categories h3 {
-  text-align: left;
-  margin-left: 20px;
+/* Main Content (with bottom padding to avoid footer overlap) */
+.ml-main {
+  padding: 16px 0 80px; /* 80px bottom to clear the fixed footer */
 }
 
-.company-container {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding: 10px 0;
+/* Each Section (People / Company) */
+.ml-section {
+  margin-bottom: 24px;
 }
 
-.company {
+.ml-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-left: 16px; /* Slight indent for the section title */
+}
+
+/* Horizontal Carousel (No Arrow Buttons) */
+.ml-carousel {
   display: flex;
-  gap: 15px;
+  overflow-x: auto; /* Horizontal scroll */
+  gap: 12px;
+  scroll-behavior: smooth; /* Optional smooth scroll */
+  padding: 0 16px; /* Some side padding */
 }
 
-.stock-card {
-  background: #1e1e1e;
-  width: 180px;
-  text-align: left;
-  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s;
-  position: relative;
+/* People Cards */
+.ml-card-person {
+  flex-shrink: 0;
+  width: 80px; /* or adjust for your design */
+  text-align: center;
 }
 
-
-.stock-card img {
+.ml-card-image {
   width: 80px;
   height: 80px;
-  object-fit: contain;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
-.stock-card h3 {
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-.stock-card p {
+.ml-card-name {
+  margin-top: 4px;
   font-size: 14px;
-  color: #ccc;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
 }
 
+/* Company Cards */
+.ml-card-company {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ml-company-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Fixed Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 65px;
+  border-top: 1px solid #d6d6d6;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-list-item {
+  flex: 1 1 0%;
+  cursor: pointer;
+}
+
+.footer-list-item-link {
+  text-decoration: none;
+}
+
+.footer-list-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  height: 100%;
+}
+
+.footer-list-item-content img {
+  margin-bottom: 4px;
+}

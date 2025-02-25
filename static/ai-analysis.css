@@ -40,94 +40,130 @@
 /* --- AI Card Section --- */
 .ai-card {
   position: relative;
-  margin-top: 8px;
+  width: 90%;
+  max-width: 480px;
+  margin: 4px auto;
+  border-radius: 10px;
   overflow: hidden;
+  font-family: 'Pretendard';
+  min-height: 350px;
+  max-height: 400px;
 }
 
-.ai-card-bg-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  min-height: 300px;
-  display: block;
-  margin: 0 auto;
+/* Wraps the image and percentage together */
+.ai-drop-probability-container {
+  display: flex;
+  align-items: center; /* Aligns items in the same line */
+  justify-content: center; /* Centers them */
+  gap: 8px; /* Adds spacing between the icon and the percentage */
+  margin-bottom: 12px;
 }
 
-/* Dark overlay */
+/* Dark overlay effect */
 .ai-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* Darken the image */
-  z-index: 2; /* Ensure it's above the image */
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 2;
 }
 
-/* Ensure text is above the overlay */
+/* Background image with object-fit */
+.ai-card-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Quote text */
 .ai-quote-text {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  color: #FFFFFF;
-  z-index: 3; /* Above the dark overlay */
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  z-index: 3;
+  padding: 20px;
 }
 
-.ai-quote-mark {
-  color: #7126F3
-}
-
+/* Adjust Quote Font */
 .ai-quote {
-  font-size: 24px;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 22px;
   font-weight: 300;
-  margin-bottom: 4px;
-  font-family: 'IBM Plex Serif', serif ;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  margin-top: 20px;
 }
 
+/* Quotation Mark */
+.ai-quote-mark {
+  color: #7126F3;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 60%;
+}
+
+/* Author Text */
 .ai-quote-author {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 200;
+  text-align: center;
 }
 
 .ai-quote-date {
   font-size: 12px;
 }
 
-/* --- Drop Probability Section --- */
+/* Probability Section */
 .ai-drop-probability-section {
   background-color: #fff;
   padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-bottom: 1px solid #eee;
 }
 
+/* Icon */
 .ai-red {
-  width:48px;
-  height:48px;
-  vertical-align:middle;
+  width: 50px;
+  height: 50px;
+
 }
 
+/* Title */
 .ai-drop-probability-title {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   margin-bottom: 4px;
-  display: inline-block;
-  margin-right: 8px;
 }
 
+/* Probability Percentage */
 .ai-drop-probability-value {
-  font-size: 48px;
+  font-size: 30px;
   font-weight: bold;
   color: #F5495E;
-  margin-left: 8px;
-  vertical-align: middle;
 }
 
 /* Discussion Title */
 .ai-discussion-section {
+  width: 90%;
   padding: 16px;
   background-color: #fff;
 }
 
 .ai-discussion-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
 }

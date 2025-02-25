@@ -166,6 +166,13 @@
   margin-bottom: 10px;
 }
 
+.logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: cover;  
+}
+
 .badge {
   align-items: center; /* Vertically center */
   justify-content: flex-start;
