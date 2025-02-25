@@ -1,5 +1,5 @@
 .header-status-bar {
-  display: flex;
+  display: flex-start;
   flex-direction: column;
   align-items: flex-start;
   padding: 21px 0px 0px;
@@ -15,10 +15,18 @@
   margin-top: 20px;
 }
 
+.analysis-header {
+  display: grid;
+  align-items: center;
+}
+
 .analysis-header h1 {
+  display: inline-block;
   width: auto;
   height: 22px;
-  margin-left: 22px;
+  margin-left:25px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
@@ -102,13 +110,16 @@
 }
 
 .recent_posts h1 {
-  margin-left: 22px;
+  margin-left:25px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   color: #000000;
+
 }
 
 .recent-posts-container {

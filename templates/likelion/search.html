@@ -88,23 +88,21 @@
     {% endif %}
     
     <!-- Display Tweets -->
-    {% if tweets %}
+    {% if ai_analysiss %}
     <h3 class="search-result-section-title">Posts</h3>
     <div class="card-container">
-      {% for tweet in tweets %}
-      <div class="card">
+      {% for analysis in ai_analysiss %}
+      <div class="card" onclick="window.location.href='/ai-analysis/?id={{analysis.id}}'"">
         <div class="image-container">
-          <img src="{{tweet.author.profile_image_url}}" alt="trender" class="logo">
+          <img src="{{analysis.tweet.author.profile_image_url}}" alt="trender" class="logo">
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{ tweet.author.name }}
+          <h5 class="card-title">{{ analysis.tweet.author.name }}
             <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
           </h5>
-          <p class="search-result-post-description">"{{ tweet.content }}"</p>
+          <p class="search-result-post-description">"{{ analysis.tweet.content }}"</p>
           <div class="company-btn-group-search-result">
-            {% for company in tweet.companies.all %}
-            <button class="company-btn">{{company.ticker}}</button>
-            {% endfor %}
+            <button class="company-btn">{{analysis.company.ticker}}</button>
           </div>
         </div>
       </div>

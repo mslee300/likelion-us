@@ -6,6 +6,7 @@
   <!-- Header with Search Bar -->
   <header class="ml-header">
     <div class="ml-search-bar">
+      <img src="{% static 'images/search.svg' %}" alt="back-button" class="ml-back-icon">
       <input
         type="text"
         class="ml-search-input"
@@ -14,53 +15,70 @@
     </div>
   </header>
 
+
   <main class="ml-main">
     <!-- My People Section -->
     <section class="ml-section">
       <h2 class="ml-section-title">My People</h2>
       <div class="ml-carousel">
-        <!-- Card 1 -->
+        <!-- Person Card 1 -->
         <div class="ml-card-person">
-            <img src="{% static 'images/Nancy-Pelosi.png' %}" alt="Nancy Pelosi" class="NP-image">
-          <p class="ml-card-name">Nancy Pelosi</p>
+          <img 
+            src="{% static 'images/Nancy-Pelosi.png' %}" 
+            alt="Nancy Pelosi" 
+            class="ml-person-image"
+          >
+          <div class="ml-person-name">Nancy Pelosi</div>
         </div>
-        <!-- Card 2 -->
+        <!-- Person Card 2 -->
         <div class="ml-card-person">
-            <img src="{% static 'images/elon-musk.png' %}" alt="Elon Musk" class="EM-image">
-          <p class="ml-card-name">Elon Musk</p>
+          <img 
+            src="{% static 'images/elon-musk.png' %}" 
+            alt="Elon Musk" 
+            class="ml-person-image"
+          >
+          <div class="ml-person-name">Elon Musk</div>
         </div>
-        <!-- Card 3 -->
+        <!-- Person Card 3 -->
         <div class="ml-card-person">
-            <img src="{% static 'images/donald-trump.png' %}" alt="Donald Trump" class="DT-image">
-          <p class="ml-card-name">Donald J. Trump</p>
+          <img 
+            src="{% static 'images/donald-trump.png' %}" 
+            alt="Donald Trump" 
+            class="ml-person-image"
+          >
+          <div class="ml-person-name">Donald Trump</div>
         </div>
-        <!-- Card 4 -->
+        <!-- Person Card 4 -->
         <div class="ml-card-person">
-            <img src="{% static 'images/tim-cook.png' %}" alt="Tim Cook" class="TC-image">
-          <p class="ml-card-name">Tim Cook</p>
+          <img 
+            src="{% static 'images/tim-cook.png' %}" 
+            alt="Tim Cook" 
+            class="ml-person-image"
+          >
+          <div class="ml-person-name">Tim Cook</div>
         </div>
       </div>
     </section>
 
     <!-- My Company Section -->
     <section class="ml-section">
-      <h2 class="ml-section-title">My Company</h2>
+      <h2 class="ml-company-section-title">My Company</h2>
       <div class="ml-carousel">
-        <!-- Card 1 -->
+        <!-- Company Card 1 -->
         <div class="ml-card-company">
-            <img src="{% static 'images/apple.png' %}" alt="Apple" class="ml-company-logo">
+          <img src="{% static 'images/apple.png' %}" alt="Apple" class="ml-company-logo">
         </div>
-        <!-- Card 2 -->
+        <!-- Company Card 2 -->
         <div class="ml-card-company">
-            <img src="{% static 'images/tesla.png' %}" alt="Tesla" class="ml-company-logo">
+          <img src="{% static 'images/tesla.png' %}" alt="Tesla" class="ml-company-logo">
         </div>
-        <!-- Card 3 -->
+        <!-- Company Card 3 -->
         <div class="ml-card-company">
-            <img src="{% static 'images/nvdia.png' %}" alt="Nvdia" class="ml-company-logo">
+          <img src="{% static 'images/nvidia.png' %}" alt="Nvidia" class="ml-company-logo">
         </div>
-        <!-- Card 4 -->
+        <!-- Company Card 4 -->
         <div class="ml-card-company">
-            <img src="{% static 'images/microsoft.png' %}" alt="Microsoft" class="ml-company-logo">
+          <img src="{% static 'images/microsoft.png' %}" alt="Microsoft" class="ml-company-logo">
         </div>
       </div>
     </section>
@@ -78,12 +96,15 @@
             </a>
         </li>
         <li class="footer-list-item">
-            <a href="{% url 'likelion:my-list' %}" class="footer-list-item-link">
-            <a class="footer-list-item-link">
-                <span class="footer-list-item-content">
-                    <img src="/static/images/my-list.svg" alt="my-list">
-                </span>
-            </a>
+                <a 
+                    href="{% url 'likelion:my-list' %}" 
+                    class="footer-list-item-link 
+                      {% if request.resolver_match.url_name == 'my-list' %}active{% endif %}"
+                  >
+                    <span class="footer-list-item-content">
+                      <img src="{% static 'images/my-list.svg' %}" alt="my-list">
+                    </span>
+                  </a>
         </li>
         <li class="footer-list-item">
             <a href="{% url 'likelion:my-profile' %}" class="footer-list-item-link">
@@ -98,7 +119,6 @@
 
 <!--------------------자바 시작 ----------------------->
 <script>
-
 
         // Scroll by a fixed amount (e.g., 100px). Adjust as needed.
         const scrollAmount = 100;

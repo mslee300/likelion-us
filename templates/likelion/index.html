@@ -12,9 +12,7 @@
         <a href="{% url 'likelion:search' %}" class="header-icon">
             <img src="/static/images/search.svg" alt="search">
         </a>
-        <div class="header-icon">
-            <img src="/static/images/notifications.svg" alt="notifications">
-        </div>  
+ 
     </div>
     <!--{% if user.is_authenticated %}
     <a class="nav-link" href="{% url 'common:logout' %}">
@@ -118,11 +116,15 @@
     <ul class="footer-list">
         <!-- my list -->
         <li class="footer-list-item">
-            <a class="footer-list-item-link">
+            <a 
+                href="{% url 'likelion:index' %}" 
+                class="footer-list-item-link 
+                  {% if request.resolver_match.url_name == 'index' %}active{% endif %}"
+              >
                 <span class="footer-list-item-content">
-                    <img src="/static/images/dashboard.svg" alt="dashboard">
+                  <img src="{% static 'images/dashboard.svg' %}" alt="dashboard">
                 </span>
-            </a>
+              </a>
         </li>
         <!-- my list -->
         <li class="footer-list-item">

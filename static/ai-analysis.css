@@ -34,16 +34,14 @@
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  margin-right: 30px;
 }
 
 /* --- AI Card Section --- */
 .ai-card {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 480px;
-  margin: 4px auto;
-  border-radius: 10px;
+  /* margin: 4px auto; */
   overflow: hidden;
   font-family: 'Pretendard';
   min-height: 350px;
@@ -64,7 +62,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
   z-index: 2;
 }
 
@@ -73,7 +71,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -157,23 +155,28 @@
 
 /* Discussion Title */
 .ai-discussion-section {
-  width: 90%;
-  padding: 16px;
+  padding-top: 16px;
   background-color: #fff;
 }
 
 .ai-discussion-title {
+  width: 90%;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  margin: auto;
 }
+
 
 /* Toggle Tabs (Elongated) */
 .ai-toggle-tab-container {
+  width: 90%;
   display: flex;
   background-color: #ded6ff;
   border-radius: 8px;
   overflow: hidden;
+  margin: auto;
+  margin-top: 8px;
 }
 
 /* Each half of the tab */
@@ -198,8 +201,11 @@
 
 /* Comments Section */
 .ai-comments-section {
-  padding: 16px;
+  width: 90%;
+  padding-top: 16px;
+  padding-bottom: 16px;
   background-color: #fff;
+  margin: auto;
 }
 
 .ai-comment-box {
@@ -235,14 +241,17 @@
 .ai-more-comments {
   font-size: 14px;
   color: #5e19c5;
-  margin-top: 8px;
   cursor: pointer;
+  margin: auto;
+  text-align: center;
+  margin-top: 16px;
 }
 
 /* Add Comment Section */
 .ai-add-comment-section {
-  padding: 16px;
-  background-color: #F2F2F2;
+  /* background-color: #F2F2F2; */
+  width: 90%;
+  margin: auto;
 }
 
 .ai-add-comment-label {
@@ -267,7 +276,7 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 10px 30px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

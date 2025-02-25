@@ -10,17 +10,20 @@
 
 <div class="individual-influencer-container">  
     <div class="influencer-info">
-        <img src="{{ company.profile_image_url }}" alt="{{ company.name }}" class="influencer-image">
+        {% for company in companies %}
+        <div class="influencer-image" onclick="locaion.href='/company/?q={{company.id}}'">
+        <div class="image-container">
+            <img src="{{company.logo_url}}" alt="logo" class="logo">
+              </div>
         <div class="influencer-details">
             <div class="name-badge">
                 <span class="influencer-name">{{ company.name }}</span>
-                {% if company.verified %}
                 <img src="{% static 'images/Verified_Badge.svg' %}" alt="Verified" class="Verified_Badge">
-                {% endif %}
             </div>
+            {% empty %}
             <span class="influencer-position">{{ company.description }}</span>
             <div class="company-btn-group">
-                {% for company in tweet.companies.all %}
+                {% for company in company.companies.all %}
                 <button class="company-btn">{{company.ticker}}</button>
                 {% endfor %}
             </div>

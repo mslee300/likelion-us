@@ -8,7 +8,7 @@
 
 /* Container: 90% width, up to 480px, centered */
 .ml-container {
-  width: 90%;
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
   background-color: #fff;
@@ -19,11 +19,16 @@
   padding: 16px 0;
 }
 
+.card-container{
+  max-width:90%;
+  margin-left:5%;
+}
+
 .ml-search-bar {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: center;
-  padding: 0 16px;
+  margin: auto;
 }
 
 .ml-search-input {
@@ -47,50 +52,70 @@
 }
 
 .ml-section-title {
+  width: 90%;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 12px;
-  padding-left: 16px; /* Slight indent for the section title */
+  margin: auto;
+  margin-bottom: 10px;
 }
 
-/* Horizontal Carousel (No Arrow Buttons) */
+.ml-company-section-title {
+  width: 90%;
+  font-size: 18px;
+  font-weight: 600;
+  margin: auto;
+}
+
+/* Horizontal Carousel */
 .ml-carousel {
+  width: 90%;
   display: flex;
   overflow-x: auto; /* Horizontal scroll */
   gap: 12px;
   scroll-behavior: smooth; /* Optional smooth scroll */
-  padding: 0 16px; /* Some side padding */
+  margin: auto;
 }
 
 /* People Cards */
 .ml-card-person {
+  position: relative;  /* for text overlay */
   flex-shrink: 0;
-  width: 80px; /* or adjust for your design */
-  text-align: center;
-}
-
-.ml-card-image {
-  width: 80px;
-  height: 80px;
+  width: 130px;        /* Larger so 2 full cards + partial 3rd card visible */
+  height: 180px;       /* Distinct height for bigger images */
   border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.ml-person-image {
+  font-family: 'IBM Plex Serif', serif ;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  display: block;
-  margin: 0 auto;
+  filter: brightness(0.6); /* Darken the image for white text readability */
 }
 
-.ml-card-name {
-  margin-top: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #000;
+/* White text in the center of the image */
+.ml-person-name {
+  font-family: 'IBM Plex Serif', serif ;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
   text-align: center;
+  padding: 4px 8px;
+  line-height: 1;
 }
 
-/* Company Cards */
+/* Company Cards (same size for consistency) */
 .ml-card-company {
   flex-shrink: 0;
-  width: 80px;
-  height: 80px;
+  width: 130px;
+  height: 180px;
   background-color: #fff;
   border-radius: 8px;
   display: flex;
@@ -99,8 +124,8 @@
 }
 
 .ml-company-logo {
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -149,4 +174,28 @@
 
 .footer-list-item-content img {
   margin-bottom: 4px;
+}
+
+.ml-search-bar {
+  position: relative; /* Allows absolute positioning for the icon */
+  width: 90%;
+}
+
+.ml-search-input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px 8px 40px; /* Adds left padding for the icon */
+  font-size: 14px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.ml-back-icon {
+  position: absolute;
+  left: 12px; /* Adjust positioning inside input */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the icon */
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+  cursor: pointer;
 }

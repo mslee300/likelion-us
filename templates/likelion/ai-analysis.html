@@ -9,30 +9,39 @@
     <div class="ai-header">
       <button 
         class="ai-header-left-back-button"
-        onclick="history.back()"
+        onclick="location.href('/')"
         style="background-image: url('{% static 'images/back-white.svg' %}');">
       </button>
       <button class="ai-header-icon ai-share-icon">Share</button>
     </div>
     <img 
       src="{% static 'images/jensen-banner.png' %}" 
+      src="https://api.twelvedata.com/logo/apple.com"
       alt="Background" 
       class="ai-card-bg-image"
     />
     <div class="ai-quote-text">
       <p class="ai-quote">
-        <span class="ai-quote-mark">“</span> 
-        Very useful quantum computers are still a few decades away
+        <span class="ai-quote-mark">“</span>
+        {{analysis.tweet.content}}
         <span class="ai-quote-mark">”</span>
       </p>
-      <p class="ai-quote-author">– Jensen Huang, CEO of Nvidia</p>
-      <p class="ai-quote-date">– Jan. 8 2:44 PM EST</p>
+      <p class="ai-quote-author">– {{analysis.tweet.author.name}}, {{analysis.tweet.author.description}}</p>
+      <p class="ai-quote-date">– {{analysis.tweet.posted_at}}</p>
       <hr class="custom-line">
-      <h2 class="ai-drop-probability-title">IonQ's Drop Probability:</h2>
+      {% if analysis.ai_score > 0 %}
+      <h2 class="ai-drop-probability-title">{{analysis.company.name}}'s Rise Probability:</h2>
       <div class="ai-drop-probability-container">
-        <img class="ai-red" src="{% static 'images/increase-red.svg' %}" alt="Increase Red">
-        <span class="ai-drop-probability-value">87%</span>
+        <img class="ai-red" src="{% static 'images/rising-stock.svg' %}" alt="Increase Red">
+        <span class="ai-drop-probability-value" style="color: #20791B; font-size: 40px;">{{analysis.ai_score}}%</span>
       </div>
+      {% else %}}
+      <h2 class="ai-drop-probability-title">
+        <div class="ai-drop-probability-container">
+          <img class="ai-red" src="{% static 'images/increase-red.svg' %}" alt="Increase Red">
+          <span class="ai-drop-probability-value">{{analysis.ai_score}}%</span>
+        </div>{{analysis.company.name}}'s Drop Probability:</h2>
+      {% endif %}
       <!-- Like/Dislike row: Both centered, on their own line -->
       <div class="like-dislike-row">
         <div class="reaction-box like-box">

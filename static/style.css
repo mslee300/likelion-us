@@ -134,6 +134,7 @@ h2, p {
   border-radius: 10px;
   min-height: 280px;
   max-height: 320px;
+  cursor: pointer;
 }
 
 .quote-card::after {
@@ -264,7 +265,7 @@ h2, p {
   width: 75px; */
   /* background-color: white; */
   align-self: center;    /* Centers it horizontally in the column */
-  margin-bottom: 12px;   /* Spacing before like/dislike row */
+  /* margin-bottom: 12px;   /* Spacing before like/dislike row */ */
 }
 
 /* Like/Dislike row: side-by-side, also centered */
@@ -333,7 +334,7 @@ h2, p {
   top: 438px;
   background: #DED6FF;
   border-radius: 12px;
-
+  cursor: pointer;
 }
 
 .trend-details{
@@ -434,6 +435,89 @@ company-btn-group-index {
   margin-left: 0;
 }
 
+.card-container {
+  margin: 0;
+  margin-bottom: 30px;
+  width: auto;
+  border-radius: 12px;
+}
+
+.card {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: flex-start; /* Align items to the left */
+  min-height: 100px;
+  background-color: #DED6FF;
+  margin-bottom: 15px;
+  border-radius: 16px;
+}
+
+.image-container {
+  min-width: 55px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  background-color: white;
+  margin-left: 25px;
+}
+
+.card-body {
+  margin-left: 10px;
+  margin-right: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 16px;
+  margin: 0; /* Remove unexpected top margin */
+  display: flex;
+  align-items: center; /* Ensure vertical centering */
+  gap: 5px; /* Add spacing if there's an icon next to it */
+}
+
+.card-text {
+
+}
+
+.badge {
+  align-items: center; /* Vertically center */
+  justify-content: flex-start;
+}
+
+.search-result-post-description {
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.search-result-person-description {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.search-result-company-description {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.search-result-section-title {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: cover;  
+}
+.company-btn-group-search-result {
+  margin-top: 5px;
+}
+
 .footer {
   display: block;
   z-index: 204;
@@ -480,6 +564,16 @@ company-btn-group-index {
 
 .footer-list-item-content img {
   margin-bottom: 4px;
+}
+
+/* When the link is "active", apply purple color (#7126F3) to any text or icons */
+.footer-list-item-link.active .footer-list-item-content {
+  color: #7126F3; /* For text if present */
+}
+
+.footer-list-item-link.active .footer-list-item-content img {
+  /* Filter for #7126F3 on black icons */
+  filter: invert(31%) sepia(99%) saturate(7503%) hue-rotate(263deg) brightness(96%) contrast(96%);
 }
 
 .header-left-group {

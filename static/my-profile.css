@@ -39,32 +39,36 @@
 }
 
 .profile-section {
-  margin-top: 20px;
+  margin-top: 25px;
   flex-grow: 1; /* Pushes footer to bottom */
   
+}
+
+.profile-section-2 {
+  flex-grow: 1; /* Pushes footer to bottom */
+
 }
 
 .profile-section-title {
   font-size: 16px;
   font-weight: bold;
   color: #909090;
-  margin-bottom: 10px;
 }
 
 .profile-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-size: 14px !important;
 }
 
 .profile-list li {
   padding: 16px 0;
-  border-bottom: 1px solid #e6e6e6;
 }
 
 .profile-link {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   color: black;
   display: block;
 }
@@ -78,4 +82,10 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.profile-page-title {
+  margin-top: 30px;
+  font-size: 22px;
+  margin-bottom: 20px;
 }
