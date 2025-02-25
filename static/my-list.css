@@ -40,6 +40,9 @@
   padding: 0 12px;
   outline: none;
 }
+.ml-search-input::placeholder {
+  color: #999;  
+}
 
 /* Main Content (with bottom padding to avoid footer overlap) */
 .ml-main {

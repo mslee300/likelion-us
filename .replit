@@ -12,7 +12,7 @@ language = "python3"
 
 [deployment]
 run = ["python", "manage.py", "runserver", "0.0.0.0:3000"]
-deploymentTarget = "gce"
+deploymentTarget = "cloudrun"
 
 [[ports]]
 localPort = 3000

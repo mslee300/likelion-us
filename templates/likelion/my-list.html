@@ -22,7 +22,7 @@
       <h2 class="ml-section-title">My People</h2>
       <div class="ml-carousel">
         <!-- Person Card 1 -->
-        <div class="ml-card-person">
+        <div class="ml-card-person" onclick="location.href='/person/?q=3'">
           <img 
             src="{% static 'images/Nancy-Pelosi.png' %}" 
             alt="Nancy Pelosi" 
@@ -31,7 +31,7 @@
           <div class="ml-person-name">Nancy Pelosi</div>
         </div>
         <!-- Person Card 2 -->
-        <div class="ml-card-person">
+        <div class="ml-card-person" onclick="location.href='/person/?q=1'">
           <img 
             src="{% static 'images/elon-musk.png' %}" 
             alt="Elon Musk" 
@@ -40,7 +40,7 @@
           <div class="ml-person-name">Elon Musk</div>
         </div>
         <!-- Person Card 3 -->
-        <div class="ml-card-person">
+        <div class="ml-card-person" onclick="location.href='/person/?q=2'">
           <img 
             src="{% static 'images/donald-trump.png' %}" 
             alt="Donald Trump" 
@@ -65,19 +65,19 @@
       <h2 class="ml-company-section-title">My Company</h2>
       <div class="ml-carousel">
         <!-- Company Card 1 -->
-        <div class="ml-card-company">
+        <div class="ml-card-company" onclick="location.href='/company/?id=1'">
           <img src="{% static 'images/apple.png' %}" alt="Apple" class="ml-company-logo">
         </div>
         <!-- Company Card 2 -->
-        <div class="ml-card-company">
+        <div class="ml-card-company" onclick="location.href='/company/?id=7'">
           <img src="{% static 'images/tesla.png' %}" alt="Tesla" class="ml-company-logo">
         </div>
         <!-- Company Card 3 -->
-        <div class="ml-card-company">
+        <div class="ml-card-company" onclick="location.href='/company/?id=3'">
           <img src="{% static 'images/nvidia.png' %}" alt="Nvidia" class="ml-company-logo">
         </div>
         <!-- Company Card 4 -->
-        <div class="ml-card-company">
+        <div class="ml-card-company"  onclick="location.href='/company/?id=2'">
           <img src="{% static 'images/microsoft.png' %}" alt="Microsoft" class="ml-company-logo">
         </div>
       </div>
@@ -234,5 +234,26 @@ function performSearch() {
             performSearch();
         }
     });
-
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector(".ml-search-input");
+    const personCards = document.querySelectorAll(".ml-card-person");
+
+    searchInput.addEventListener("keyup", function () {
+      const searchText = searchInput.value.trim().toLowerCase();
+
+      personCards.forEach(card => {
+        const name = card.querySelector(".ml-person-name").innerText.trim().toLowerCase();
+
+        // Show only if the name STARTS with the search text
+        if (name.startsWith(searchText) || searchText === "") {
+          card.style.display = "flex"; // Ensures flex items are properly shown
+        } else {
+          card.style.display = "none"; // Hides unmatched names
+        }
+      });
+    });
+  });
+</script>
+

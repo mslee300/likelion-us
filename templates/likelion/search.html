@@ -47,7 +47,7 @@
       <h3 class="search-result-section-title">Companies</h3>
       <div class="card-container">
         {% for company in companies %}
-        <div class="card" onclick="locaion.href='/company/?q={{company.id}}'">
+        <div class="card" onclick="location.href='/company/?id={{company.id}}'">
           <div class="image-container">
             <img src="{{company.logo_url}}" alt="logo" class="logo">
           </div>
@@ -66,9 +66,9 @@
     <!-- Display People -->
     {% if people %}
     <h3>Person</h3>
-    <div class="card-container" onclick="window.location.href='/person/?q={{ person.id }}'">
+    <div class="card-container">
       {% for person in people %}
-      <div class="card">
+      <div class="card" onclick="window.location.href='/person/?q={{ person.id }}'">
         <div class="image-container">
           <img src="{{person.profile_image_url}}" alt="trender" class="logo">
         </div>
@@ -76,9 +76,11 @@
           <h5 class="card-title">{{ person.name }}
             <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
           </h5>
-          <p class="search-result-person-description">CEO of Tesla, SpaceX, and X</p>
+          <p class="search-result-person-description">{{person.description}}</p>
           <div class="company-btn-group-search-result">
-              <button class="company-btn" data-company="aapl">AAPL</button>
+            {% for company in person.companies.all %}
+            <button class="company-btn" onclick="location.href='/company/?id={{ company.id }}'">{{company.ticker}}</button>
+            {% endfor %}
           </div>
         </div>
       </div>

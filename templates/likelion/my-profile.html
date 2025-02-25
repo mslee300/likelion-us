@@ -8,16 +8,17 @@
     <div class="profile-header">
         <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile Picture" class="profile-image">
         <div class="profile-info">
-            <span class="profile-username">Username</span>
+            <span class="profile-username">{{ user.username }}</span>
         </div>
     </div>
 
     <div class="profile-section">
         <h2 class="profile-section-title">Account</h2>
         <ul class="profile-list">
-            <li><a href="#" class="profile-link" onclick="showModal()">Log Out</a></li>
+            <li><a href="{% url 'common:logout' %}" class="profile-link" %>Log Out</a></li>
             <li><a href="#" class="profile-link" onclick="showModal()">Ask Question</a></li>
             <li><a href="#" class="profile-link" onclick="showModal()">Report</a></li>
+            <li><a href="#" class="profile-link" onclick="showModal()">Delete Account</a></li>
         </ul>
     </div>
 

@@ -94,7 +94,7 @@
 }
 
 .login-page-login-button {
-  background-color: #FF7710;
+  background-color: #7126F3;
   color: white;
   cursor: not-allowed;
   width: 100%;
@@ -114,4 +114,26 @@
   line-height: 24px;
   letter-spacing: -0.2px;
   margin-top: 68px;
+}
+
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.login-header-left-back-button {
+  width: 24px;
+  height: 24px;
+  margin-left: 0;
+  margin-top: 20px;
+}
+
+.app-logo-login {
+  width: 48px;
+  height: 48px;
 }

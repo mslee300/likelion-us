@@ -450,6 +450,7 @@ company-btn-group-index {
   background-color: #DED6FF;
   margin-bottom: 15px;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .image-container {
@@ -618,4 +619,10 @@ company-btn-group-index {
   border: none;
   outline: none;
   line-height: 0;
+}
+
+.signup-header-left-back-button {
+  width: 24px;
+  height: 24px;
+  margin-top: 20px;
 }

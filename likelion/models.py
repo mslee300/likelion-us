@@ -10,6 +10,7 @@ class Company(models.Model):
   category = models.CharField(max_length=50)  # 카테고리 (예: Tech, Finance)
   created_at = models.DateTimeField(auto_now_add=True)  # 생성 날짜
 
+
   def __str__(self):
     return f"{self.name} ({self.ticker}) - {self.category}"
 

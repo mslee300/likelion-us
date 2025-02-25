@@ -89,7 +89,7 @@
     <div class = "dashboard-trending-container">
         <h2>Trending</h2>
         {% for author in authors %}
-        <div class="individual-trending-container" onclick="location.href='/person/?q={{ author.id }}'">
+        <div class="individual-trending-container" onclick="location.href='/person/?id={{ author.id }}'">
             <div class="trend-info">
                 <img src="{{author.profile_image_url}}" alt="trender" class="trend-image"></span>
                 <div class="trend-details">
@@ -97,7 +97,7 @@
                     <span class="trend-position">{{author.description}}</span>
                     <div class="company-btn-group-index">
                         {% for company in author.companies.all %}
-                        <button class="company-btn">{{company.ticker}}</button>
+                        <button class="company-btn" onclick="location.href='/company/?id={{ company.id }}'">{{company.ticker}}</button>
                         {% endfor %}
                     </div>
                 </div>

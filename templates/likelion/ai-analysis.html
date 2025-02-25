@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<style>
+  .reaction-box {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
+  .like-box:hover {
+    background-color: #5e19c5 !important; /* Darker Purple */
+  }
+
+  .dislike-box:hover {
+    background-color: #DED6FF !important; /* Darker Red */
+  }
+</style>
 <div class="ai-analysis-container">
   <!-- AI Card Section -->
   <section class="ai-card">
@@ -9,7 +22,7 @@
     <div class="ai-header">
       <button 
         class="ai-header-left-back-button"
-        onclick="location.href('/')"
+        onclick="location.href='/'"
         style="background-image: url('{% static 'images/back-white.svg' %}');">
       </button>
       <button class="ai-header-icon ai-share-icon">Share</button>
@@ -35,7 +48,7 @@
         <img class="ai-red" src="{% static 'images/rising-stock.svg' %}" alt="Increase Red">
         <span class="ai-drop-probability-value" style="color: #20791B; font-size: 40px;">{{analysis.ai_score}}%</span>
       </div>
-      {% else %}}
+      {% else %}
       <h2 class="ai-drop-probability-title">
         <div class="ai-drop-probability-container">
           <img class="ai-red" src="{% static 'images/increase-red.svg' %}" alt="Increase Red">
@@ -44,21 +57,23 @@
       {% endif %}
       <!-- Like/Dislike row: Both centered, on their own line -->
       <div class="like-dislike-row">
-        <div class="reaction-box like-box">
+        <!-- Like Button -->
+        <div class="reaction-box like-box" onclick="handleLike()">
           <img class="like-icon"
             src="{% static 'images/like.svg' %}" 
             alt="Like" 
             class="reaction-icon"
           >
-            <span class="like-button-text">Like</span>
+          <span class="like-button-text" id="like-count">Like</span>
         </div>
-        <div class="reaction-box dislike-box">
+        <!-- Dislike Button -->
+        <div class="reaction-box dislike-box" onclick="handleDislike()">
           <img class="dislike-icon"
             src="{% static 'images/dislike.svg' %}" 
             alt="Dislike" 
             class="reaction-icon"
           >
-            <span class="dislike-button-text">Dislike</span>
+          <span class="dislike-button-text" id="dislike-count">Dislike</span>
         </div>
       </div>
     </div>
@@ -112,14 +127,218 @@
 </div>
 
 <script>
-function toggleUp() {
-  document.querySelector('.ai-toggle-up').classList.add('active');
-  document.querySelector('.ai-toggle-down').classList.remove('active');
-}
-function toggleDown() {
-  document.querySelector('.ai-toggle-down').classList.add('active');
-  document.querySelector('.ai-toggle-up').classList.remove('active');
-}
+  let likeClicked = false;
+  let dislikeClicked = false;
+
+  function handleLike() {
+    if (!likeClicked) {
+      document.getElementById("like-count").innerText = "1295";
+      document.getElementById("dislike-count").innerText = "230"; // Ensure Dislike count is also updated
+      document.querySelector(".like-box").style.backgroundColor = "#5e19c5"; // Darker color
+      likeClicked = true;
+    }
+  }
+
+  function handleDislike() {
+    if (!dislikeClicked) {
+      document.getElementById("like-count").innerText = "1295"; // Ensure Like count is also updated
+      document.getElementById("dislike-count").innerText = "230";
+      document.querySelector(".dislike-box").style.backgroundColor = "#DED6FF"; // Darker red
+      dislikeClicked = true;
+    }
+  }
 </script>
+<script>
+  function toggleUp() {
+    // Update button styles
+    document.querySelector('.ai-toggle-up').classList.add('active');
+    document.querySelector('.ai-toggle-up').style.backgroundColor = "#7126F3";
+    document.querySelector('.ai-toggle-up').style.color = "white";
+
+    document.querySelector('.ai-toggle-down').classList.remove('active');
+    document.querySelector('.ai-toggle-down').style.backgroundColor = "#DED6FF";
+    document.querySelector('.ai-toggle-down').style.color = "black";
+
+    // Update Comments
+    document.querySelector(".ai-comments-section").innerHTML = `
+      <h2 class="ai-discussion-title">Discussion</h2>
+      <div class="ai-comment-box">
+        <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+        <div class="ai-comment-details">
+          <p class="ai-comment-author">ricecake3513</p>
+          <p class="ai-comment-text">"I think it's a great buying opportunity!"</p>
+        </div>
+      </div>
+      <div class="ai-comment-box">
+        <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+        <div class="ai-comment-details">
+          <p class="ai-comment-author">chicken3834</p>
+          <p class="ai-comment-text">"Bullish on this stock, fundamentals are strong."</p>
+        </div>
+      </div>
+      <div class="ai-comment-box">
+        <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+        <div class="ai-comment-details">
+          <p class="ai-comment-author">bread1044</p>
+          <p class="ai-comment-text">"Market overreacted, it will recover soon."</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function toggleDown() {
+    // Update button styles
+    document.querySelector('.ai-toggle-down').classList.add('active');
+    document.querySelector('.ai-toggle-down').style.backgroundColor = "#7126F3";
+    document.querySelector('.ai-toggle-down').style.color = "white";
+
+    document.querySelector('.ai-toggle-up').classList.remove('active');
+    document.querySelector('.ai-toggle-up').style.backgroundColor = "#DED6FF";
+    document.querySelector('.ai-toggle-up').style.color = "black";
+
+    // Update Comments
+    document.querySelector(".ai-comments-section").innerHTML = `
+      <h2 class="ai-discussion-title">Discussion</h2>
+      <div class="ai-comment-box">
+        <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+        <div class="ai-comment-details">
+          <p class="ai-comment-author">Pizza3944</p>
+          <p class="ai-comment-text">"The trend is downward, expect further drops."</p>
+        </div>
+      </div>
+      <div class="ai-comment-box">
+        <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+        <div class="ai-comment-details">
+          <p class="ai-comment-author">Cherrykukbab2035</p>
+          <p class="ai-comment-text">"Bearish sentiment is growing, I’m selling my position."</p>
+        </div>
+      </div>
+    `;
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let likeClicked = false;
+    let dislikeClicked = false;
+
+    document.querySelector(".ai-add-comment-submit").addEventListener("click", function () {
+      let commentInput = document.getElementById("ai-new-comment");
+      let commentText = commentInput.value.trim();
+
+      if (commentText !== "") {
+        let commentSection = document.querySelector(".ai-comments-section");
+
+        // Create new comment box
+        let newComment = document.createElement("div");
+        newComment.classList.add("ai-comment-box");
+        newComment.innerHTML = `
+          <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+          <div class="ai-comment-details">
+            <p class="ai-comment-author">You</p>
+            <p class="ai-comment-text">"${commentText}"</p>
+          </div>
+        `;
+
+        // Append new comment at the bottom
+        commentSection.appendChild(newComment);
+
+        // Hide input section and "More comments"
+        document.querySelector(".ai-add-comment-section").style.display = "none";
+        let moreComments = document.querySelector(".ai-more-comments");
+        if (moreComments) {
+          moreComments.style.display = "none";
+        }
+
+        // Clear input field
+        commentInput.value = "";
+      }
+    });
+
+    // Like/Dislike Functionality
+    document.querySelector(".like-box").addEventListener("click", function () {
+      if (!likeClicked) {
+        document.getElementById("like-count").innerText = "1295";
+        document.querySelector(".like-box").style.backgroundColor = "#5e19c5"; // Darker color
+        likeClicked = true;
+      }
+    });
+
+    document.querySelector(".dislike-box").addEventListener("click", function () {
+      if (!dislikeClicked) {
+        document.getElementById("dislike-count").innerText = "230";
+        document.querySelector(".dislike-box").style.backgroundColor = "#DED6FF"; // Darker color
+        dislikeClicked = true;
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let likeClicked = false;
+    let dislikeClicked = false;
+
+    // Add event listener for share button
+    document.querySelector(".ai-share-icon").addEventListener("click", function () {
+      let shareURL = "https://likelion-us.replit.app/ai-analysis/?id=35";
+
+      navigator.clipboard.writeText(shareURL).then(function() {
+        alert("Link copied!");
+      }).catch(function(err) {
+        console.error("Failed to copy: ", err);
+      });
+    });
+
+    document.querySelector(".ai-add-comment-submit").addEventListener("click", function () {
+      let commentInput = document.getElementById("ai-new-comment");
+      let commentText = commentInput.value.trim();
+
+      if (commentText !== "") {
+        let commentSection = document.querySelector(".ai-comments-section");
+
+        // Create new comment box
+        let newComment = document.createElement("div");
+        newComment.classList.add("ai-comment-box");
+        newComment.innerHTML = `
+          <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+          <div class="ai-comment-details">
+            <p class="ai-comment-author">You</p>
+            <p class="ai-comment-text">"${commentText}"</p>
+          </div>
+        `;
+
+        // Append new comment at the bottom
+        commentSection.appendChild(newComment);
+
+        // Hide input section and "More comments"
+        document.querySelector(".ai-add-comment-section").style.display = "none";
+        let moreComments = document.querySelector(".ai-more-comments");
+        if (moreComments) {
+          moreComments.style.display = "none";
+        }
+
+        // Clear input field
+        commentInput.value = "";
+      }
+    });
+
+    // Like/Dislike Functionality
+    document.querySelector(".like-box").addEventListener("click", function () {
+      if (!likeClicked) {
+        document.getElementById("like-count").innerText = "1295";
+        document.querySelector(".like-box").style.backgroundColor = "#5e19c5"; // Darker color
+        likeClicked = true;
+      }
+    });
+
+    document.querySelector(".dislike-box").addEventListener("click", function () {
+      if (!dislikeClicked) {
+        document.getElementById("dislike-count").innerText = "230";
+        document.querySelector(".dislike-box").style.backgroundColor = "#DED6FF"; // Darker color
+        dislikeClicked = true;
+      }
+    });
+  });
+</script>
+
 
 {% endblock %}
