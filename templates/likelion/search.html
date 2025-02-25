@@ -7,26 +7,106 @@
     <img src="{% static 'images/back.svg' %}" alt="back-button">
   </button>
   <div class="search-bar">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search Ticker or Company Name"
-    />
+    <form method="get">
+      <input
+        type="text"
+        name="q"
+        class="search-input"
+        placeholder="Search Ticker or Company Name"
+        value="{{query}}"
+      />
+    </form>
   </div>
 </header>
 
 <main class="search-container">
+  {% if not query %}
   <section class="trending-section">
     <h2 class="trending-title">Trending</h2>
     <div class="trending-tags">
-      <div class="trending-tag">Nvidia</div>
-      <div class="trending-tag">Tesla</div>
-      <div class="trending-tag">Microsoft</div>
-      <div class="trending-tag">Donald Trump</div>
-      <div class="trending-tag">Palantir</div>
-      <div class="trending-tag">Tempus AI</div>
-      <div class="trending-tag">Apple</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Nvidia'">Nvidia</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Tesla'">Tesla</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Microsoft'">Microsoft</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Donald Trump'">Donald Trump</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Palantir'">Palantir</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Tempus AI'">Tempus AI</div>
+      <div class="trending-tag" onclick="window.location.href='/search?q=Apple'">Apple</div>
+
     </div>
   </section>
+  {% else %}
+  <section class="search-results">
+    <h2 class="search-title">Search Results for "{{ query }}"</h2>
+
+    {% if not companies and not tweets and not person %}
+    <p class="no-results">No results found</p>  
+    {% endif %}
+    
+      <!-- Display Companies -->
+      {% if companies %}
+      <h3 class="search-result-section-title">Companies</h3>
+      <div class="card-container">
+        {% for company in companies %}
+        <div class="card">
+          <div class="image-container"></div>
+          <div class="card-body">
+            <h5 class="card-title">{{ company.name }}
+              <img src="https://api.twelvedata.com/logo?symbol=AAPL&apikey=c79378a0eb5b414fb3b8b54b84e64a06" alt="badge" class="badge">
+            </h5>
+            <span class="search-result-company-description">Tesla is an automotive company that manufactures electric vehicles, solar panels, and energy storage systems.</span>
+          </div>
+        </div>
+        {% empty %}
+        <p>No companies found.</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Display People -->
+    {% if people %}
+    <h3>Person</h3>
+    <div class="card-container">
+      {% for person in people %}
+      <div class="card">
+        <div class="image-container"></div>
+        <div class="card-body">
+          <h5 class="card-title">{{ person.name }}
+            <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
+          </h5>
+          <p class="search-result-person-description">CEO of Tesla, SpaceX, and X</p>
+          <div class="company-btn-group-search-result">
+              <button class="company-btn" data-company="aapl">AAPL</button>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Display Tweets -->
+    {% if tweets %}
+    <h3 class="search-result-section-title">Posts</h3>
+    <div class="card-container">
+      {% for tweet in tweets %}
+      <div class="card">
+        <div class="image-container"></div>
+        <div class="card-body">
+          <h5 class="card-title">{{ tweet.author.name }}
+            <img src="{% static 'images/Verified_Badge.svg' %}" alt="badge" class="badge">
+          </h5>
+          <p class="search-result-post-description">"{{ tweet.content }}"</p>
+          <div class="company-btn-group-search-result">
+              <button class="company-btn" data-company="aapl">AAPL</button>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p>No tweets found.</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
 </main>
 {% endblock %}

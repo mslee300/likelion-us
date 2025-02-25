@@ -5,7 +5,7 @@
 :root {
   --primary-color: #7126F3;
   --secondary-color: white;
-  --font-primary:  font-family: 'Inter', sans-serif;
+  --font-primary:  font-family: 'Pretendard';
 }
 
 html,
@@ -26,7 +26,7 @@ body {
   color: black;
   line-height: 1.5;
   margin: 0px auto;
-  font-family: font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   border-left: 1px solid rgb(232, 232, 233);
   border-right: 1px solid rgb(232, 232, 233);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 8px;
@@ -68,9 +68,10 @@ h2, p {
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  min-height: calc(100vh - 65px);
+  min-height: calc(100vh - 75px);
   background-color: white;
   padding-bottom: 80px;
+  padding-top: 10px;
 }
 
 .header {
@@ -98,8 +99,8 @@ h2, p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 }
 
 .logo-link {
@@ -111,21 +112,36 @@ h2, p {
   height: 100%;
 }
 
+.app-logo {
+  height: 100px;
+  width: 100px;
+}
+
 /* -------------------------------------- */
 /* Highlight Card (Above Trending)       */
 /* -------------------------------------- */
 
 .quote-card {
   position: relative;
-  width: 100%; /* Make it flexible */
+  width: 90%; /* Make it flexible */
   max-width: 480px; /* Prevent it from getting too large */
-  margin: 16px auto; /* Keep it centered */
-  padding: 0 16px; /* Add some padding on both left and right */
+  margin: 4px auto; /* Keep it centered */
   box-sizing: border-box; /* Ensure padding doesn’t increase width */
   overflow: hidden;
   font-family: 'Pretendard';
-  border-radius: 12px; /* Adds rounded corners */
+  border-radius: 2px; /* Adds rounded corners */
   background-color: white; /* Ensure visibility */
+  border-radius: 10px;
+  min-height: 280px;
+  max-height: 320px;
+}
+
+.quote-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1; /* Place it above the image */
 }
 
 
@@ -134,7 +150,10 @@ h2, p {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: inherit; /* Make it follow the card’s border radius */
+  border-radius: 8px;
+  min-height: 300px;
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -142,63 +161,93 @@ h2, p {
 .card-border {
   position: absolute;
   inset: 0;
-  border: 2px solid #fff;
-  border-radius: 24px;
+  border-radius: 10px;
   z-index: 2;
 }
 
 /* Container for text & reaction boxes */
 .card-content {
-  margin-top: 25px;
   position: absolute;
   inset: 0;
-  z-index: 3;              /* Above background & border */
+  z-index: 3;              
   display: flex;
-  flex-direction: column;  /* Stack quote, author, rocket, then like/dislike */
-  padding: 4px;
+  flex-direction: column;
+  align-items: center;  /* Centers content horizontally */
+  justify-content: center; /* Centers content vertically */
+  text-align: center;
   box-sizing: border-box;
 }
+
 
 /* Quote text (white, left-aligned) */
 .quote-text {
   font-family: 'IBM Plex Serif', serif ;
-  font-style: italic;
-  /* Other properties you already have */
   margin: 0 0 8px;
   color: #fff;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 22px;
+  /* font-weight: 300; */
   line-height: 1.4;
   text-align: center;
-  
+  margin-bottom:0;
 }
 
 /* Purple quotation marks */
 .quote-mark {
   color: #7126F3;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   opacity: 60%;
+}
+
+.custom-line {
+  width: 100%;        /* Full width */
+  max-width: 80%;     /* Adjust width */
+  height: 1px;        /* Thin line */
+  background-color: white; /* White color */
+  border: none;       /* Remove default border */
+  margin: 10px auto;  /* Add spacing and center it */
+  opacity: 0.5;       /* Adjust visibility */
 }
 
 /* Author line: right-aligned, smaller font */
 .quote-author {
   padding-left: 10px;
   margin: 0 0 8px;
-  font-size: 10px; /* Adjust as needed */
+  font-size: 12px; /* Adjust as needed */
   color: #fff;
-  font-weight: semi-bold;
+  font-weight: 200;
   align-self: flex-end;
+  text-align: center; /* Ensures author text is centered */
+  width: 100%; /* Ensures it spans the full width for better centering */
 }
 
 .quote-n-author {
-  padding-left: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Left align children */
-  width: 50%;              /* Occupies the left half of the card */
-  text-align: left;        /* Ensure text inside is left-aligned */
+  align-items: center; /* Centers content inside */
+  justify-content: center; /* Centers vertically */
+  text-align: center; /* Ensures text inside is centered */
+  width: clamp(70%, 65%, 70%); /* Minimum 40%, default 60%, max 90% */
+  margin: 0 auto; /* Centers the element itself */
+  max-width: 90%;
 }
+
+.like-button-text {
+  padding-left: 5px;
+  color: white;
+}
+
+.dislike-button-text {
+  padding-left: 5px;
+  color: black;
+}
+
+.probabiity-text {
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+}
+
 
 /* Base style for all reaction boxes (rocket, like, dislike) */
 .reaction-box {
@@ -211,9 +260,9 @@ h2, p {
 
 /* Rocket box: White background, centered horizontally */
 .rocket-box {
-  height: 30px;
-  width: 75px;
-  background-color: white;
+  /* height: 30px;
+  width: 75px; */
+  /* background-color: white; */
   align-self: center;    /* Centers it horizontally in the column */
   margin-bottom: 12px;   /* Spacing before like/dislike row */
 }
@@ -241,16 +290,16 @@ h2, p {
 
 /* Icons inside the reaction boxes */
 .reaction-icon {
-  width: 14px;
-  height: 14px;
+  width: 50px;
+  height: 50px;
   margin-right: 6px;
 }
 
 /* "76%" text inside the rocket box */
 .reaction-text {
-  font-size: 12px;
+  font-size: 30px;
   font-weight: 600;
-  color: black;  /* If rocket box is white; use #fff if purple */
+  color: #F5495E;  /* If rocket box is white; use #fff if purple */
   line-height: 1;
 }
 
@@ -262,6 +311,7 @@ h2, p {
 /*백지원*/
 .dashboard-trending-container{
   text-align:left !important;
+  width: 90%;
 }
 
 .dashboard-trending-container h2{
@@ -272,13 +322,13 @@ h2, p {
   line-height: 24px;
   text-align: left;
   color: #000000;
+  margin-top: 20px;
 }
 
 .individual-trending-container{
   display: flex;
-  margin-top:10px;
-  width: 345px;
-  height: 92px;
+  margin-top: 12px;
+  height: 110px;
   left: 24px;
   top: 438px;
   background: #DED6FF;
@@ -298,14 +348,13 @@ h2, p {
 }
 
 .trend-info {
-  width: 345px;
-  position: relative;
-  display: flex;   
-  justify-content: space-between; 
-  align-items: center;
-  width: 100%; 
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Spread items across */
+  width: 100%;
   gap: 15px;
 }
+
 
 .trend-image{
   width: 60px;  
@@ -339,6 +388,7 @@ h2, p {
   text-align: left;
   color: #000000;
   margin-top: 4px;
+  margin-bottom : 4px;
 }
 
 .company-btn-group {
@@ -349,8 +399,8 @@ h2, p {
 
 .company-btn{
   background: #7126F3;
-  width: 42px;
-  height: 20px;
+  width: 45px;
+  height: 22px;
   border-radius: 12px;
   font-family: 'Pretendard';
   font-style: normal;
@@ -362,24 +412,26 @@ h2, p {
   border: none;
 }
 
-.add-button { 
-  background-size: cover;
-  background-color:#DED6FF;
-  background-position: center; 
+.add-button {
+  margin-left: auto; /* Pushes it to the right */
   width: 36px;
   height: 36px;
-  margin-top: 0px; 
+  background-size: cover;
+  background-color: #DED6FF;
+  background-position: center;
   border: none;
   cursor: pointer;
-  flex-direction: row;
   margin-right: 20px;
-  align-items:center;
 }
 
 .trend-name,
 .trend-position,
 .company-btn-group{
   display: block !important;
+}
+
+company-btn-group-index {
+  margin-left: 0;
 }
 
 .footer {

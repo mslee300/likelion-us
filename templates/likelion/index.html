@@ -4,7 +4,7 @@
 <header class="header">
     <a href="/">
         <div class="logo-link">
-            <img src="/static/images/logo.svg" alt="번글 로고">
+            <img class ="app-logo" src="/static/images/$talk-logo.svg" alt="logo">
         </div>
     </a>
     <!-- 아이콘 변경 예정-->
@@ -32,37 +32,37 @@
 </header>
 <main class="main-content">
 <!-- main card-->
-    <section class="quote-card">
+    <section class="quote-card" onclick="location.href='/ai-analysis/?id={{ai_analysis.id}}'">
       <!-- Background image (Jensen Huang) -->
       <img 
-        src="{% static 'images/card-bg.png' %}" 
+        src="{% static 'images/jensen-banner.png' %}" 
         alt="Background" 
         class="card-bg-image"
       />
-
-      <!-- White border with rounded corners -->
-      <div class="card-border"></div>
 
       <!-- Text & Reaction Overlay -->
       <div class="card-content">
         <!-- Quote (left-aligned) -->
           <div class="quote-n-author">
-        <blockquote class="quote-text">
+        <p class="quote-text">
           <span class="quote-mark">“</span> 
-          Very useful quantum <br>computers are still a <br>few decades away
+              {{ ai_analysis.tweet.content }}
           <span class="quote-mark">”</span>
-        </blockquote>
-        <p class="quote-author">– Jensen Huang, CEO of Nvidia</p>
+        </p>
+        <p class="quote-author">– {{ai_analysis.tweet.author.name}}, {{ai_analysis.tweet.author.description}}</p>
+              <hr class="custom-line">
           </div>
-
+          <span class="probabiity-text">
+              {{ai_analysis.company.name}}’s Drop Probability:
+          </span>
         <!-- Rocket box: Purple, centered -->
         <div class="reaction-box rocket-box">
           <img 
-            src="{% static 'images/rocket.svg' %}" 
+            src="{% static 'images/increase-red.svg' %}" 
             alt="Rocket" 
             class="reaction-icon"
           >
-          <span class="reaction-text">76%</span>
+          <span class="reaction-text">{{ai_analysis.ai_score}}%</span>
         </div>
 
         <!-- Like/Dislike row: Both centered, on their own line -->
@@ -73,6 +73,7 @@
               alt="Like" 
               class="reaction-icon"
             >
+              <span class="like-button-text">Like</span>
           </div>
           <div class="reaction-box dislike-box">
             <img class="dislike-icon"
@@ -80,6 +81,7 @@
               alt="Dislike" 
               class="reaction-icon"
             >
+              <span class="dislike-button-text">Dislike</span>
           </div>
         </div>
       </div>
@@ -88,16 +90,17 @@
 <!--trending tickers -->
     <div class = "dashboard-trending-container">
         <h2>Trending</h2>
-        <div class="individual-trending-container">  
+        {% for author in authors %}
+        <div class="individual-trending-container" onclick="location.href='/person/?q={{ author.id }}'">
             <div class="trend-info">
-                <img src="{% static 'images/trump.svg' %}" alt="trender" class="trend-image"></span>
+                <img src="{{author.profile_image_url}}" alt="trender" class="trend-image"></span>
                 <div class="trend-details">
-                    <span class="trend-name">Doland J. Trump</span>
-                    <span class="trend-position">President of United States of America</span>
-                    <div class="company-btn-group">
-                        <button class="company-btn" data-company="aapl">AAPL</button>
-                        <button class="company-btn" data-company="djt">DJT</button>
-                        <button class="company-btn" data-company="tsla">TSLA</button>
+                    <span class="trend-name">{{author.name}}</span>
+                    <span class="trend-position">{{author.description}}</span>
+                    <div class="company-btn-group-index">
+                        {% for company in author.companies.all %}
+                        <button class="company-btn">{{company.ticker}}</button>
+                        {% endfor %}
                     </div>
                 </div>
                 <button class="add-to-profile add-button"  
@@ -105,45 +108,8 @@
                         style="background-image: url('{% static 'images/add.svg' %}');">
                 </button>
             </div>
-        </div>  
-        <!--Nancy Pelosi-->
-        <div class="individual-trending-container">  
-            <div class="trend-info">
-                <img src="{% static 'images/nancy.svg' %}" alt="trender" class="trend-image"></span>
-                <div class="trend-details-1">
-                    <span class="trend-name">Nancy Pelosi</span>
-                    <span class="trend-position">American Politician</span>
-                    <div class="company-btn-group">
-                        <button class="company-btn" data-company="aapl">goog</button>
-                        <button class="company-btn" data-company="djt">amaz</button>
-                        <button class="company-btn" data-company="tsla">nvda</button>
-                    </div>
-                </div>
-                <button class="add-to-profile add-button"  
-                        data-name="Nancy Pelosi"
-                        style="background-image: url('{% static 'images/add.svg' %}');">
-                </button>
-            </div>
-        </div>  
-        <!--Elon Musk-->
-        <div class="individual-trending-container">  
-            <div class="trend-info">
-                <img src="{% static 'images/elon.svg' %}" alt="trender" class="trend-image"></span>
-                <div class="trend-details-1">
-                    <span class="trend-name">Elon Musk</span>
-                    <span class="trend-position">CEO of Tesla Inc.</span>
-                    <div class="company-btn-group">
-                        <button class="company-btn" data-company="aapl">tesla</button>
-                        <button class="company-btn" data-company="djt">nvda</button>
-                        <button class="company-btn" data-company="tsla">meta</button>
-                    </div>
-                </div>
-                <button class="add-to-profile add-button"  
-                        data-name="Nancy Pelosi"
-                        style="background-image: url('{% static 'images/add.svg' %}');">
-                </button>
-            </div>
-        </div> 
+        </div>
+        {% endfor %}
     </div>
 
     

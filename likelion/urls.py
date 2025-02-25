@@ -10,5 +10,6 @@ urlpatterns = [
     path('my-profile/', views.my_profile, name='my-profile'),
     path('search/', views.search, name='search'),
     path('person/', views.person, name='person'),
-    path('company/', views.company, name='company')
+    path('company/', views.company, name='company'),
+    path('ai-analysis/', views.ai_analysis, name='ai_analysis'),
 ]

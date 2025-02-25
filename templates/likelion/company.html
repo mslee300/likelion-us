@@ -1,86 +1,81 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
 <header class="analysis-header">
   <button class="header-left-back-button"
       onclick="history.back()"
       style="background-image: url('{% static 'images/back.svg' %}');"></button>
     <h1>Company</h1>
 </header>
+
 <div class="individual-influencer-container">  
     <div class="influencer-info">
-        <img src="{% static 'images/elon.svg' %}" alt="influencer" class="influencer-image">
+        <img src="{{ company.profile_image_url }}" alt="{{ company.name }}" class="influencer-image">
         <div class="influencer-details">
             <div class="name-badge">
-                <span class="influencer-name">Elon Musk</span>
+                <span class="influencer-name">{{ company.name }}</span>
+                {% if company.verified %}
                 <img src="{% static 'images/Verified_Badge.svg' %}" alt="Verified" class="Verified_Badge">
+                {% endif %}
             </div>
-            <span class="influencer-position">CEO of Tesla, SpaceX, and X</span>
+            <span class="influencer-position">{{ company.description }}</span>
             <div class="company-btn-group">
-                <button class="company-btn" data-company="aapl">tesla</button>
-                <button class="company-btn" data-company="djt">nvda</button>
-                <button class="company-btn" data-company="tsla">meta</button>
+                {% for company in company.companies.all %}
+                <button class="company-btn">{{company.ticker}}</button>
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
+<!--recent posts-->
 <div class="recent_posts">
     <h1>Recent Posts</h1>
-    <!--boxes-->
     <div class="recent-posts-container">
+        {% for post in company.posts %}
         <div class="recent-post">
             <div class="recent-post-image">
-                <img src="{% static 'images/trump.svg' %}" alt="influencer" class="recent-image">
+                <img src="{% static 'images/' %}{{ post.image|default:company.image }}" alt="influencer" class="recent-image">
             </div>
             <div class="recent-post-details">
-                <div class="name-badge">
-                    <span class="influencer-name">Donald J. Trump</span>
-                    <img src="{% static 'images/Verified_Badge.svg' %}" alt="Verified" class="Verified_Badge">
+                <div class="recent-name-badge">
+                    <div class="recent-name">{{ company.name }}</div>
+                    {% if company.verified %}
+                    <img src="{% static 'images/Verified_Badge.svg' %}" alt="Verified" class="Verified_Badge-1">
+                    {% endif %}
                 </div>
-                <div class="influencer-description">
-                    “Based on the tremendous cost and cost overruns of the Lockheed Martin F-35, 
-                    I have asked Boeing to price-out a comparable F-18 Super Hornet!”
+                <div class="recent-description">
+                    <span>{{ post.content }}</span>
+                    <div class="next">></div>
+                </div>
+                <div class = "last-row"">
+                    {% if post.company %}
+                    <button class="company-btn-2" data-company="{{ post.company.ticker }}">
+                        {{ post.company.name }}
+                    </button>
+                    {% endif %}
+
+                    <div class="stock-change">
+                        {% if post.stock_change %}
+                            {% with stock_change=post.stock_change|default:"0"|floatformat:2 %}
+                                {% if stock_change > 0 %}
+                                    <img src="{% static 'images/increase.svg' %}" alt="Stock Up" class="stock-icon">
+                                    <span class="stock-change-text stock-increase">{{ stock_change }}%</span>
+                                {% elif stock_change < 0 %}
+                                    <img src="{% static 'images/decrease.svg' %}" alt="Stock Down" class="stock-icon">
+                                    <span class="stock-change-text stock-decrease">{{ stock_change }}%</span>
+                                {% else %}
+                                    <p>No stock change</p>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            <span class="stock-change-text">No Data</span>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div> 
-    <!--boxes-->
-    <div class="recent-posts-container">
-        <div class="recent-post">
-            <div class="recent-post-image">
-                <img src="{% static 'images/trump.svg' %}" alt="influencer" class="recent-image">
-            </div>
-            <div class="recent-post-details">
-                <div class="name-badge">
-                    <span class="influencer-name">Donald J. Trump</span>
-                    <img src="{% static 'images/Verified_Badge.svg' %}" alt="Verified" class="Verified_Badge">
-                </div>
-                <div class="influencer-description">
-                    “Based on the tremendous cost and cost overruns of the Lockheed Martin F-35, 
-                    I have asked Boeing to price-out a comparable F-18 Super Hornet!”
-                </div>
-            </div>
-        </div>
-    </div> 
-    <!--boxes-->
-    <div class="recent-posts-container">
-        <div class="recent-post">
-            <div class="recent-post-image">
-                <img src="{% static 'images/trump.svg' %}" alt="influencer" class="recent-image">
-            </div>
-            <div class="recent-post-details">
-                <div class="name-badge">
-                    <span class="influencer-name">Donald J. Trump</span>
-                    <img src="{% static 'images/Verified_Badge.svg' %}" alt="Verified" class="Verified_Badge">
-                </div>
-                <div class="influencer-description">
-                    “Based on the tremendous cost and cost overruns of the Lockheed Martin F-35, 
-                    I have asked Boeing to price-out a comparable F-18 Super Hornet!”
-                </div>
-            </div>
-        </div>
+        {% endfor %} 
     </div> 
 </div> 
 
-    {% endblock %}
+{% endblock %}

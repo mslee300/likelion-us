@@ -32,7 +32,7 @@ analysis_template = ChatPromptTemplate.from_messages([("system", """
         Return the output in the following JSON format:
             "ai_score": a score between -100 and 100,
             "sumamry": a summary of the analysis,
-            "reasoning": "Explanation of the analysis in natural and concise English"
+            "reasoning": "Explanation of the analysis in natural and concise English (max 100words)"
         
 
         Input data:
@@ -70,6 +70,7 @@ related_companies_chain = related_companies_template | llm
 def save_ai_analysis():
     tweets = Tweet.objects.all()
     for tweet in tweets:
+        tweet.companies.clear()
         tweet_data = {
             "author": tweet.author.name,
             "content": tweet.content,
@@ -88,10 +89,23 @@ def save_ai_analysis():
                     "tweet": tweet_data,
                     "ticker": ticker
                 }).content
-                print(tweet_data["author"], tweet_data["content"], ticker,
-                      response)
-                if response["ai_score""] != 0:
-                    
+                ai_analysis = json.loads(response)
+                ai_score = ai_analysis["ai_score"]
+                summary = ai_analysis["summary"]
+                reasoning = ai_analysis["reasoning"]
+                if ai_score != 0:
+                    company = Company.objects.get(ticker=ticker)
+                    # tweet 의 companies를 업데이트
+                    tweet.companies.add(company)
+
+                    # ai_analysis 의 정보를 저장
+                    ai_analysis = AIAnalysis.objects.create(
+                        tweet=tweet,
+                        company=company,
+                        ai_score=ai_score,
+                        summary=summary,
+                        reasoning=reasoning)
+                    ai_analysis.save()
 
 
 def get_ai_score_from_tweet(tweet, ticker):
@@ -122,7 +136,7 @@ def add_companies_from_json(json_file_path):
 
             # 이미 존재하는 회사 업데이트 또는 생성
             try:
-                company, created = Company.objects.update_or_create(
+                company, created = Company.objects.create(
                     ticker=ticker,
                     defaults={
                         'name': name,

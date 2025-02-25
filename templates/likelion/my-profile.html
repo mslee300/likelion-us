@@ -40,32 +40,29 @@
     </div>
 </main>
 
-<footer class="footer">
+<footer class="footer"<span style = "position: fixed">
     <ul class="footer-list">
         <li class="footer-list-item">
-            <a href="{% url 'likelion:index' %}" class="footer-list-item-link">
+                <a href="{% url 'likelion:index' %}" class="footer-list-item-link">
                 <span class="footer-list-item-content">
-                    <img src="{% static 'images/dashboard.svg' %}" alt="Dashboard">
-                    <span class="footer-text">Dashboard</span>
+                    <img src="/static/images/dashboard.svg" alt="Dashboard">
                 </span>
             </a>
         </li>
         <li class="footer-list-item">
             <a href="{% url 'likelion:my-list' %}" class="footer-list-item-link">
+            <a class="footer-list-item-link">
                 <span class="footer-list-item-content">
-                    <img src="{% static 'images/my-list.svg' %}" alt="My List">
-                    <span class="footer-text">My List</span>
+                    <img src="/static/images/my-list.svg" alt="my-list">
                 </span>
             </a>
         </li>
-        <li class="footer-list-item active">
+        <li class="footer-list-item">
             <a href="{% url 'likelion:my-profile' %}" class="footer-list-item-link">
                 <span class="footer-list-item-content">
-                    <img src="{% static 'images/my-profile.svg' %}" alt="My Profile">
-                    <span class="footer-text">My Profile</span>
+                    <img src="/static/images/my-profile.svg" alt="my-profile">
                 </span>
             </a>
-        </li>
     </ul>
 </footer>
 

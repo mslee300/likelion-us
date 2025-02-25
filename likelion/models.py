@@ -18,7 +18,9 @@ class Author(models.Model):
   id = models.AutoField(primary_key=True)
   username = models.CharField(max_length=50, unique=True)
   name = models.CharField(max_length=100, null=True, blank=True)
+  description = models.TextField(blank=True, null=True, default="")
   profile_image_url = models.URLField(blank=True, null=True)
+  companies = models.ManyToManyField(Company, related_name='authors')
 
 
 # 트윗 모델
@@ -41,13 +43,12 @@ class AIAnalysis(models.Model):
                               on_delete=models.CASCADE,
                               related_name="ai_analyses")  # 분석 대상 회사
   ai_score = models.IntegerField(0)  # 긍정 점수 (0~1)
+  summary = models.CharField(max_length=200, null=True, blank=True)
+  reasoning = models.CharField(max_length=1000, null=True, blank=True)
   analyzed_at = models.DateTimeField(auto_now_add=True)  # 분석 시간
 
   class Meta:
     unique_together = ('tweet', 'company')  # 트윗과 회사 조합으로 고유성 보장
-
-  def __str__(self):
-    return f"Analysis for {self.company.ticker} on Tweet {self.tweet.tweet_id}"
 
 
 # 찬반 투표 모델

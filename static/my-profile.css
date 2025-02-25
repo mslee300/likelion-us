@@ -5,6 +5,7 @@
   min-height: calc(100vh - 65px); /* Ensures content fills the screen and footer is always at bottom */
   display: flex;
   flex-direction: column;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .profile-header {
@@ -32,7 +33,7 @@
 
 .profile-username {
   margin-left: 15px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: black;
 }
@@ -44,9 +45,9 @@
 }
 
 .profile-section-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
-  color: gray;
+  color: #909090;
   margin-bottom: 10px;
 }
 
@@ -57,7 +58,7 @@
 }
 
 .profile-list li {
-  padding: 12px 0;
+  padding: 16px 0;
   border-bottom: 1px solid #e6e6e6;
 }
 

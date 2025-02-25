@@ -1,0 +1,243 @@
+.ai-analysis-container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-bottom: 16px;
+}
+
+.ai-header {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 10; /* Ensure it's above the image */
+}
+
+.ai-header-left-back-button {
+  width: 24px;
+  height: 24px;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.ai-header-icon.ai-share-icon {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+/* --- AI Card Section --- */
+.ai-card {
+  position: relative;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.ai-card-bg-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Dark overlay */
+.ai-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Darken the image */
+  z-index: 2; /* Ensure it's above the image */
+}
+
+/* Ensure text is above the overlay */
+.ai-quote-text {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: #FFFFFF;
+  z-index: 3; /* Above the dark overlay */
+}
+
+.ai-quote-mark {
+  color: #7126F3
+}
+
+.ai-quote {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 4px;
+  font-family: 'IBM Plex Serif', serif ;
+}
+
+.ai-quote-author {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.ai-quote-date {
+  font-size: 12px;
+}
+
+/* --- Drop Probability Section --- */
+.ai-drop-probability-section {
+  background-color: #fff;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.ai-red {
+  width:48px;
+  height:48px;
+  vertical-align:middle;
+}
+
+.ai-drop-probability-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.ai-drop-probability-value {
+  font-size: 48px;
+  font-weight: bold;
+  color: #F5495E;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Discussion Title */
+.ai-discussion-section {
+  padding: 16px;
+  background-color: #fff;
+}
+
+.ai-discussion-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Toggle Tabs (Elongated) */
+.ai-toggle-tab-container {
+  display: flex;
+  background-color: #ded6ff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Each half of the tab */
+.ai-toggle-tab {
+  flex: 1;
+  text-align: center;
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Active half */
+.ai-toggle-tab.active {
+  background-color: #7126F3; /* Dark purple */
+  color: #fff;
+}
+
+/* Comments Section */
+.ai-comments-section {
+  padding: 16px;
+  background-color: #fff;
+}
+
+.ai-comment-box {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.ai-comment-profile {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.ai-comment-details {
+  flex: 1;
+}
+
+.ai-comment-author {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.ai-comment-text {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ai-more-comments {
+  font-size: 14px;
+  color: #5e19c5;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* Add Comment Section */
+.ai-add-comment-section {
+  padding: 16px;
+  background-color: #F2F2F2;
+}
+
+.ai-add-comment-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.ai-add-comment-input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  resize: none;
+  margin-bottom: 8px;
+}
+
+.ai-add-comment-submit {
+  background-color: #5e19c5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ai-add-comment-submit:hover {
+  background-color: #4a138e;
+}

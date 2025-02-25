@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="ai-analysis-container">
+  <!-- AI Card Section -->
+  <section class="ai-card">
+    <!-- Background image (Jensen Banner) -->
+    <div class="ai-header">
+      <button 
+        class="ai-header-left-back-button"
+        onclick="history.back()"
+        style="background-image: url('{% static 'images/back-white.svg' %}');">
+      </button>
+      <button class="ai-header-icon ai-share-icon">Share</button>
+    </div>
+    <img 
+      src="{% static 'images/jensen-banner.png' %}" 
+      alt="Background" 
+      class="ai-card-bg-image"
+    />
+    <div class="ai-quote-text">
+      <p class="ai-quote">
+        <span class="ai-quote-mark">“</span> 
+        Very useful quantum computers are still a few decades away
+        <span class="ai-quote-mark">”</span>
+      </p>
+      <p class="ai-quote-author">– Jensen Huang, CEO of Nvidia</p>
+      <p class="ai-quote-date">– Jan. 8 2:44 PM EST</p>
+    </div>
+  </section>
+
+  <!-- Drop Probability Section -->
+  <section class="ai-drop-probability-section">
+    <h2 class="ai-drop-probability-title">IonQ's Drop Probability:</h2>
+    <img class="ai-red"src="{% static 'images/increase-red.svg' %}" alt="Increase Red">
+    <span class="ai-drop-probability-value">87%</span>
+  </section>
+
+  <!-- Discussion Section -->
+  <section class="ai-discussion-section">
+    <h2 class="ai-discussion-title">Discussion</h2>
+    <!-- Prediction Toggle (Elongated Tabs) -->
+    <div class="ai-toggle-tab-container">
+      <button class="ai-toggle-tab ai-toggle-up active" onclick="toggleUp()">
+        Will go up
+      </button>
+      <button class="ai-toggle-tab ai-toggle-down" onclick="toggleDown()">
+        Will go down
+      </button>
+    </div>
+  </section>
+
+  <!-- Comments Section -->
+  <section class="ai-comments-section">
+    <div class="ai-comment-box">
+      <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+      <div class="ai-comment-details">
+        <p class="ai-comment-author">AlligatorTeeth</p>
+        <p class="ai-comment-text">
+          “I believe that some aspects of quantum computing are still viable 
+          and worth to invest into!”
+        </p>
+      </div>
+    </div>
+    <div class="ai-comment-box">
+      <img src="{% static 'images/ai-pfp.svg' %}" alt="Profile" class="ai-comment-profile">
+      <div class="ai-comment-details">
+        <p class="ai-comment-author">AlligatorTeeth</p>
+        <p class="ai-comment-text">
+          “I believe that some aspects of quantum computing are still viable 
+          and worth to invest into!”
+        </p>
+      </div>
+    </div>
+    <p class="ai-more-comments">More comments ›</p>
+  </section>
+
+  <!-- Add Comment Section -->
+  <section class="ai-add-comment-section">
+    <label for="ai-new-comment" class="ai-add-comment-label">Add a comment</label>
+    <textarea id="ai-new-comment" class="ai-add-comment-input" rows="3"></textarea>
+    <button class="ai-add-comment-submit">Submit</button>
+  </section>
+</div>
+
+<script>
+function toggleUp() {
+  document.querySelector('.ai-toggle-up').classList.add('active');
+  document.querySelector('.ai-toggle-down').classList.remove('active');
+}
+function toggleDown() {
+  document.querySelector('.ai-toggle-down').classList.add('active');
+  document.querySelector('.ai-toggle-up').classList.remove('active');
+}
+</script>
+
+{% endblock %}
